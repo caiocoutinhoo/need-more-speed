@@ -3,9 +3,6 @@ package main;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +12,11 @@ public class GamePanel extends JPanel implements Runnable {
     // CONFIGURAÇÕES DE TELA
     final int D_W = 1280;
     final int D_H = 720;
+
+    // TECLADO
+
+    KeyHandler keyH = new KeyHandler();
+
 
     //  FPS
     int FPS = 60;
@@ -26,6 +28,12 @@ public class GamePanel extends JPanel implements Runnable {
     double camD= 0.7; // camera deph
     List<Line> lines = new ArrayList<GamePanel.Line>();
     int N;
+
+    // Posição do carro
+    int playerX = 499;
+    int playerY = 554;
+    int playerSpeed = 4;
+
 
     Thread gameThread;
 
@@ -41,6 +49,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         this.setPreferredSize( new Dimension (D_W, D_H));
         this.setDoubleBuffered(true);
+        this.addKeyListener(keyH);
+        this.setFocusable(true);
 
     }
 
@@ -74,6 +84,21 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update(){
+        if (keyH.upPressed){
+            playerY -= playerSpeed;
+        } if (keyH.downPressed) {
+            playerY += playerSpeed;
+        } if (keyH.leftPressed) {
+            playerX -= playerSpeed;
+        } if (keyH.rightPressed) {
+            playerX += playerSpeed;
+        }
+
+
+        playerX = Math.max(40, Math.min(D_W - 330, playerX));
+        playerY = Math.max(0, Math.min(D_H - 150, playerY));
+        System.out.println(playerX);
+        System.out.println(playerY);
 
     }
 
@@ -83,7 +108,11 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
 
         desenharObjetos(g2);
+
+        g2.setColor(Color.RED);
+        g2.fillRect(playerX,playerY, 290, 150);
         g2.dispose();
+
     }
     void desenharObjetos(Graphics2D g){
         // Desenhar ruas
@@ -108,7 +137,6 @@ public class GamePanel extends JPanel implements Runnable {
             desenharQuadrado(g, rumble, (int) p.X, (int) p.Y, (int) (p.W * 1.4), (int) l.X, (int) l.Y,
                     (int) (l.W * 1.4));
             desenharQuadrado(g, road, (int) p.X, (int) p.Y, (int) (p.W * 1.2), (int) l.X, (int) l.Y, (int) (l.W* 1.2));
-            System.out.println((int) p.Y);
 
         }
 
