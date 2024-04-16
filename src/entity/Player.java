@@ -2,7 +2,6 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
-
 import java.awt.*;
 
 public class Player extends Entity {
@@ -23,9 +22,9 @@ public class Player extends Entity {
     }
     public void update(){
         if (keyH.upPressed){
-            y -= speed;
+            //y -= speed;
         } if (keyH.downPressed) {
-            y += speed;
+            //y += speed;
         } if (keyH.leftPressed) {
             x -= speed;
         } if (keyH.rightPressed) {

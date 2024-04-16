@@ -13,6 +13,8 @@ public class MapDefault {
     int segL=200; // segmen lenght
     double camD= 0.7; // camera deph
 
+    int playerPosition=0;
+    int playerX;
 
 
 

@@ -29,9 +29,11 @@ public class Map1 extends MapDefault{
     void desenharObjetos(Graphics2D g){
         // Desenhar ruas
 
-        for (int n = 0; n < 300; n++) {
+        int starPosition= playerPosition/segL;
+
+        for (int n = starPosition; n < starPosition+300; n++) {
             Line l= lines.get(n%N);
-            l.project(0, 1500, 0);
+            l.project(0, 1500, playerPosition);
             Color grass= ((n/2)%2)==0? new Color(16,200,16):new Color(0,154,0);
             Color rumble= ((n/2)%2)==0? new Color(255,255,255):new Color(255,0,0);
             //Color road= ((n/2)%2)==0? new Color(0, 0, 0):new Color(31, 31, 31);
@@ -59,7 +61,14 @@ public class Map1 extends MapDefault{
 
     }
 
+
+
+    public void update(){
+        if (keyH.upPressed)
+            playerPosition += 200;
+    }
     public void draw(Graphics2D g2){
         desenharObjetos(g2);
     }
+
 }

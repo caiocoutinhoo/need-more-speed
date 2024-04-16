@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Cenario básico e Player">
-      <change afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/map/MapDefault.java" afterDir="false" />
+    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Cenario básico e Player Parte 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/MapDefault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/MapDefault.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713275121217</updated>
       <workItem from="1713275122051" duration="2168000" />
-      <workItem from="1713288738868" duration="7000000" />
+      <workItem from="1713288738868" duration="8989000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -147,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713293018220</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Cenario básico e Player Parte 2">
+      <option name="closed" value="true" />
+      <created>1713296627768</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713296627768</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,17 +165,7 @@
     <MESSAGE value="1" />
     <MESSAGE value="Criando a Main e Cenario básico" />
     <MESSAGE value="Cenario básico e Player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cenario básico e Player" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/GamePanel.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Cenario básico e Player Parte 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cenario básico e Player Parte 2" />
   </component>
 </project>
