@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Criando a Main e Cenario básico">
-      <change afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Cenario básico e Player">
+      <change afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/MapDefault.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713275121217</updated>
       <workItem from="1713275122051" duration="2168000" />
-      <workItem from="1713288738868" duration="3752000" />
+      <workItem from="1713288738868" duration="7000000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -136,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713277213266</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Cenario básico e Player">
+      <option name="closed" value="true" />
+      <created>1713293018220</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713293018220</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,6 +157,18 @@
     <MESSAGE value="2" />
     <MESSAGE value="1" />
     <MESSAGE value="Criando a Main e Cenario básico" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando a Main e Cenario básico" />
+    <MESSAGE value="Cenario básico e Player" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cenario básico e Player" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/GamePanel.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

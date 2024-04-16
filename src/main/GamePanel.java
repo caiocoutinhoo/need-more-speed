@@ -1,4 +1,6 @@
 package main;
+import entity.Player;
+import map.Map1;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -10,39 +12,31 @@ import java.util.List;
 public class GamePanel extends JPanel implements Runnable {
 
     // CONFIGURAÇÕES DE TELA
-    final int D_W = 1280;
-    final int D_H = 720;
-
+    public final int D_W = 1280;
+    public final int D_H = 720;
     // TECLADO
-
     KeyHandler keyH = new KeyHandler();
-
-
     //  FPS
     int FPS = 60;
 
     // TESTE DE PISTA
-
     int roadW=2000;
     int segL=200; // segmen lenght
     double camD= 0.7; // camera deph
     List<Line> lines = new ArrayList<GamePanel.Line>();
     int N;
 
-    // Posição do carro
-    int playerX = 499;
-    int playerY = 554;
-    int playerSpeed = 4;
-
-
     Thread gameThread;
+    // Player
+    Player player = new Player(this,keyH);
+    Map1 map1 = new Map1(this, keyH);
 
     public GamePanel(){
-        for (int i = 0; i < 1600; i++) {
-            Line line = new Line();
-            line.z = i*segL;
-            lines.add(line);
-        }
+//        for (int i = 0; i < 1600; i++) {
+//            Line line = new Line();
+//            line.z = i*segL;
+//            lines.add(line);
+//        }
 
         N = lines.size();
 
@@ -84,21 +78,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update(){
-        if (keyH.upPressed){
-            playerY -= playerSpeed;
-        } if (keyH.downPressed) {
-            playerY += playerSpeed;
-        } if (keyH.leftPressed) {
-            playerX -= playerSpeed;
-        } if (keyH.rightPressed) {
-            playerX += playerSpeed;
-        }
-
-
-        playerX = Math.max(40, Math.min(D_W - 330, playerX));
-        playerY = Math.max(0, Math.min(D_H - 150, playerY));
-        System.out.println(playerX);
-        System.out.println(playerY);
+        player.update();
 
     }
 
@@ -107,10 +87,12 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        desenharObjetos(g2);
+        //desenharObjetos(g2);
 
-        g2.setColor(Color.RED);
-        g2.fillRect(playerX,playerY, 290, 150);
+        map1.draw(g2);
+
+        player.draw(g2);
+
         g2.dispose();
 
     }
