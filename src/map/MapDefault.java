@@ -8,17 +8,11 @@ import java.awt.*;
 public class MapDefault {
     GamePanel gp;
     KeyHandler keyH;
-
     int roadW=2000;
-    int segL=300; // segmen lenght
+    int segL=600; // segmen lenght
     double camD= 0.7; // camera deph
-
     int playerPosition=0;
     int playerX;
-
-
-
-
     public void desenharQuadrado(Graphics g, Color c, int x1, int y1, int w1, int x2, int y2, int w2){
         int[] xPoints={x1-w1,x2-w2,x2+w2,x1+w1};
         int[] yPoints={y1,y2,y2,y1};

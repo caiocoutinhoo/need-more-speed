@@ -68,16 +68,9 @@ public class Map1 extends MapDefault{
     public void update(){
         if (keyH.upPressed){
             playerPosition += player.velocidade;
-            player.velocidade += (int) player.aceleracao;
-            if (player.velocidade > 300)
-                player.velocidade -= (int) player.aceleracao;
         }
         if (!keyH.upPressed){
             playerPosition += player.velocidade;
-            if (player.velocidade>0)
-                player.velocidade -= 2;
-            if (player.velocidade < 0)
-                player.velocidade=0;
         }
     }
     public void draw(Graphics2D g2){
