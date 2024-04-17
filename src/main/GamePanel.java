@@ -22,7 +22,7 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     // Player
     Player player = new Player(this,keyH);
-    Map1 map1 = new Map1(this, keyH);
+    Map1 map1 = new Map1(this, keyH, player);
 
     public GamePanel(){
 

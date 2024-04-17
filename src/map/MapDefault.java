@@ -10,7 +10,7 @@ public class MapDefault {
     KeyHandler keyH;
 
     int roadW=2000;
-    int segL=200; // segmen lenght
+    int segL=300; // segmen lenght
     double camD= 0.7; // camera deph
 
     int playerPosition=0;

@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Cenario básico e Player Parte 2">
+    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Cenario básico e Player Parte 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/map/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
@@ -96,7 +97,9 @@
       <option name="presentableId" value="Default" />
       <updated>1713275121217</updated>
       <workItem from="1713275122051" duration="2168000" />
-      <workItem from="1713288738868" duration="8989000" />
+      <workItem from="1713288738868" duration="9506000" />
+      <workItem from="1713317536493" duration="1443000" />
+      <workItem from="1713358714145" duration="1052000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -154,11 +157,30 @@
       <option name="project" value="LOCAL" />
       <updated>1713296627768</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Cenario básico e Player Parte 3">
+      <option name="closed" value="true" />
+      <created>1713299371109</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713299371109</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2" />
@@ -166,6 +188,7 @@
     <MESSAGE value="Criando a Main e Cenario básico" />
     <MESSAGE value="Cenario básico e Player" />
     <MESSAGE value="Cenario básico e Player Parte 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cenario básico e Player Parte 2" />
+    <MESSAGE value="Cenario básico e Player Parte 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cenario básico e Player Parte 3" />
   </component>
 </project>

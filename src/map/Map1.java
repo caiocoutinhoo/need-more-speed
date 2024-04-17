@@ -1,5 +1,6 @@
 package map;
 
+import entity.Player;
 import main.GamePanel;
 import main.KeyHandler;
 
@@ -8,16 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map1 extends MapDefault{
-
+    Player player;
     List<Line> lines = new ArrayList<Line>();
     int N;
 
-
-    public Map1(GamePanel gp, KeyHandler keyH){
+    public Map1(GamePanel gp, KeyHandler keyH, Player player){
         this.gp=gp;
         this.keyH=keyH;
+        this.player = player;
 
-        for (int i = 0; i < 1600; i++) {
+
+        for (int i = 0; i < 1200; i++) {
             Line line = new Line();
             line.z = i*segL;
             lines.add(line);
@@ -64,8 +66,19 @@ public class Map1 extends MapDefault{
 
 
     public void update(){
-        if (keyH.upPressed)
-            playerPosition += 200;
+        if (keyH.upPressed){
+            playerPosition += player.velocidade;
+            player.velocidade += (int) player.aceleracao;
+            if (player.velocidade > 300)
+                player.velocidade -= (int) player.aceleracao;
+        }
+        if (!keyH.upPressed){
+            playerPosition += player.velocidade;
+            if (player.velocidade>0)
+                player.velocidade -= 2;
+            if (player.velocidade < 0)
+                player.velocidade=0;
+        }
     }
     public void draw(Graphics2D g2){
         desenharObjetos(g2);

@@ -18,7 +18,8 @@ public class Player extends Entity {
     public void setDefaultValues(){
         x = 499;
         y = 554;
-        speed = 4;
+        aderencia = 4;
+        aceleracao = 1;
     }
     public void update(){
         if (keyH.upPressed){
@@ -26,9 +27,9 @@ public class Player extends Entity {
         } if (keyH.downPressed) {
             //y += speed;
         } if (keyH.leftPressed) {
-            x -= speed;
+            x -= aderencia;
         } if (keyH.rightPressed) {
-            x += speed;
+            x += aderencia;
         }
 
 

@@ -3,6 +3,8 @@ package entity;
 public class Entity {
 
     public int x, y;
-    public int speed;
+    public int aderencia;
+    public int aceleracao;
+    public int velocidade=0;
 
 }
