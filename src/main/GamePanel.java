@@ -1,12 +1,8 @@
 package main;
 import entity.Player;
 import map.Map1;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class GamePanel extends JPanel implements Runnable {
@@ -18,7 +14,6 @@ public class GamePanel extends JPanel implements Runnable {
     KeyHandler keyH = new KeyHandler();
     //  FPS
     int FPS = 60;
-
     Thread gameThread;
     // Player
     Player player = new Player(this,keyH);
@@ -38,7 +33,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
     @Override
     public void run() {
-        double drawnInterval = 1000000000/FPS;
+        double drawnInterval = (double) 1000000000 /FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -60,9 +55,8 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
     public void update(){
-        player.update();
         map1.update();
-
+        player.update();
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
