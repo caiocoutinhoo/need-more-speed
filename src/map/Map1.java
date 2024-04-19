@@ -13,6 +13,8 @@ public class Map1 extends MapDefault{
     List<Line> lines = new ArrayList<Line>();
     int N;
     double angulo = 0;
+    double angulo2 = 0;
+
 
     public Map1(GamePanel gp, KeyHandler keyH, Player player){
         this.gp=gp;
@@ -25,11 +27,14 @@ public class Map1 extends MapDefault{
             if (i > 200 && i < 400) {
                 line.curve = 5;
             }
-            if (i > 399 && i < 500) {
-                line.curve = -5;
+            if (i > 399 && i < 499) {
+                line.curve = -20;
             }
-            if (i > 150 && angulo < 360 * 2){
-                line.y = Math.sin(angulo++/180 * Math.PI) * 2000;
+            if (i > 150 && angulo < 360 * 0.5){
+                line.y = -Math.sin(angulo++/180 * Math.PI) * 10000;
+            }
+            if (i > 399 && angulo2 < 360 * 0.5){
+                line.y = Math.sin(angulo++/180 * Math.PI) * 10000;
             }
             lines.add(line);
         }
