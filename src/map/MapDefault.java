@@ -12,7 +12,7 @@ public class MapDefault {
     int segL=600; // segmen lenght
     double camD= 0.7; // camera deph
     int playerPosition=0;
-    int playerX;
+    int playerX=0;
     public void desenharQuadrado(Graphics g, Color c, int x1, int y1, int w1, int x2, int y2, int w2){
         int[] xPoints={x1-w1,x2-w2,x2+w2,x1+w1};
         int[] yPoints={y1,y2,y2,y1};
@@ -24,10 +24,10 @@ public class MapDefault {
     public class Line{
         public double x,y,z; // 3D center of line
         public double X,Y,W; // screen coord
-        double scale;
+        double scale, curve;
 
         public Line(){
-            x=z=y=0;
+            curve=x=z=y=0;
         }
         public void project(int camX, int camY, int camZ){
             scale = camD/(z-camZ);

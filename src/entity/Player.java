@@ -7,6 +7,7 @@ import java.awt.*;
 public class Player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
+    int temp=0;
 
     public  Player(GamePanel gp, KeyHandler keyH){
         this.gp=gp;
@@ -19,8 +20,8 @@ public class Player extends Entity {
         x = 499;
         y = 554;
         aderencia = 7;
-        aceleracao = 1.5;
-        limVelocidade = 300;
+        aceleracao = 1.3;
+        limVelocidade = 500;
         freio = 10;
     }
     public void update(){
@@ -40,15 +41,26 @@ public class Player extends Entity {
 
         if (!keyH.upPressed){
             if (velocidade>0)
-                velocidade -= 2;
+                velocidade -= 0.5;
             if (velocidade < 0)
                 velocidade=0;
         }
 
-        x = Math.max(400, Math.min(1208 - 330, x)); // Limite da tela pro carro não sair
+        x = Math.max(10, Math.min(1208 - 300, x)); // Limite da tela pro carro não sair
+        verificarVelocidade();
     }
     public void draw(Graphics2D g2){
         g2.setColor(Color.RED);
         g2.fillRect(x,y, 290, 150);
+    }
+
+    void verificarVelocidade(){
+        temp +=  60;
+        if (temp==600){
+            int veloc = (int) (velocidade/2);
+            System.out.println("Velocidade:" + veloc);
+            temp = 0;
+        }
+
     }
 }
