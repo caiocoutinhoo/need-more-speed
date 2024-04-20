@@ -20,8 +20,8 @@ public class Player extends Entity {
         x = 499;
         y = 554;
         aderencia = 7;
-        aceleracao = 1.3;
-        limVelocidade = 500;
+        aceleracao = 3;
+        limVelocidade = 1000;
         freio = 10;
     }
     public void update(){

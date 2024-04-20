@@ -8,6 +8,7 @@ import java.awt.*;
 public class MapDefault {
     GamePanel gp;
     KeyHandler keyH;
+    int tamanhoDaPista;
     int roadW=2000;
     int segL=600; // segmen lenght
     double camD= 0.7; // camera deph
