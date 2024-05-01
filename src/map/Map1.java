@@ -4,7 +4,9 @@ import entity.Player;
 import main.GamePanel;
 import main.KeyHandler;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +14,17 @@ public class Map1 extends MapDefault{
     Player player;
     List<Line> lines = new ArrayList<Line>();
     int N;
+    int pointX=1069;
+    int pointY=130;
+
     public Map1(GamePanel gp, KeyHandler keyH, Player player){
         this.gp=gp;
         this.keyH=keyH;
         this.player = player;
+        getMap1Image();
+
+
+
         tamanhoDaPista = 3000;
         int voltas = 3;
         for (int i = 0; i < ( (tamanhoDaPista*voltas)+500 ); i++) {
@@ -73,7 +82,14 @@ public class Map1 extends MapDefault{
             }
         }
     }
-
+    public void getMap1Image(){
+        try {
+            miniMap = ImageIO.read(getClass().getResourceAsStream("/map1/miniMap-01.png"));
+            point = ImageIO.read(getClass().getResourceAsStream("/map1/point.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void update(){
         if (keyH.upPressed){
             playerPosition += (int) player.velocidade;
@@ -95,6 +111,9 @@ public class Map1 extends MapDefault{
     }
     public void draw(Graphics2D g2){
         desenharObjetos(g2);
+
+        g2.drawImage(miniMap,1050, 50, 130,130, null);
+        pointInMap(g2);
     }
     public void percurssoDoMapa(int i, int tamanho, Line line, int v){
         v = v * tamanho;
@@ -196,7 +215,7 @@ public class Map1 extends MapDefault{
 
         if (playerPosition <= volta*3000*600){
             volta= volta+1;
-            System.out.println(volta);
+            //System.out.println(volta);
         }
        // System.out.println(volta);
 
@@ -204,6 +223,16 @@ public class Map1 extends MapDefault{
     }
     public double curvaInercia(double velocidade, int curva){
         return ((curva * 3.5) * velocidade) /200;
+    }
+    public void pointInMap(Graphics2D g2){
+        int contador = 0;
+        if (player.velocidade>50){
+            if (playerPosition < 300*600 ){
+                pointY= (int) (pointY - 0.001);
+            }
+        }
+        System.out.println(player.velocidade);
+        g2.drawImage(point,pointX, pointY, 12,12, null);
     }
 
 }

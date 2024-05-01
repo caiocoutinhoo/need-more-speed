@@ -20,8 +20,8 @@ public class Player extends Entity {
         x = 499;
         y = 554;
         aderencia = 0.2;
-        aceleracao = 8;
-        limVelocidade = 2000;
+        aceleracao = 1;
+        limVelocidade = 500;
         freio = 10;
     }
     public void update(){
@@ -33,12 +33,7 @@ public class Player extends Entity {
             velocidade -= freio;
             if (velocidade <= 0)
                 velocidade =0;
-        } if (keyH.leftPressed) {
-           // x -= aderencia;
-        } if (keyH.rightPressed) {
-           // x += aderencia;
         }
-
         if (!keyH.upPressed){
             if (velocidade>0)
                 velocidade -= 0.5;
@@ -49,7 +44,7 @@ public class Player extends Entity {
         x = Math.max(10, Math.min(1208 - 300, x)); // Limite da tela pro carro não sair
         //verificarVelocidade();
     }
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D g2)  {
         g2.setColor(Color.RED);
         g2.fillRect(x,y, 290, 150);
     }
