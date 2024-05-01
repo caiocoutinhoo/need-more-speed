@@ -4,15 +4,19 @@ import main.GamePanel;
 import main.KeyHandler;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class MapDefault {
     GamePanel gp;
     KeyHandler keyH;
-    int roadW=2000;
+    int tamanhoDaPista;
+    int roadW=3000;
     int segL=600; // segmen lenght
     double camD= 0.7; // camera deph
     int playerPosition=0;
     int playerX=0;
+    public BufferedImage miniMap, point;
+
     public void desenharQuadrado(Graphics g, Color c, int x1, int y1, int w1, int x2, int y2, int w2){
         int[] xPoints={x1-w1,x2-w2,x2+w2,x1+w1};
         int[] yPoints={y1,y2,y2,y1};
