@@ -225,15 +225,20 @@ public class Map1 extends MapDefault{
         return ((curva * 3.5) * velocidade) /200;
     }
     public void pointInMap(Graphics2D g2){
-        int contador = 0;
+
+
         if (player.velocidade>50){
-            if (playerPosition < 300*600 ){
-                pointY= (int) (pointY - 0.001);
+            if (playerPosition < 300  * 600 ){
+                pointY = (int) (pointY - 0.001);
             }
         }
-        System.out.println(player.velocidade);
+
+
+        System.out.println(playerPosition);
         g2.drawImage(point,pointX, pointY, 12,12, null);
     }
+
+
 
 }
 
