@@ -14,23 +14,20 @@ public class Map1 extends MapDefault{
     Player player;
     List<Line> lines = new ArrayList<Line>();
     int N;
-    int pointX=1069;
-    int pointY=130;
-
+    int pointX,pointY;
+    int voltaPercorrida=0;
     public Map1(GamePanel gp, KeyHandler keyH, Player player){
         this.gp=gp;
         this.keyH=keyH;
         this.player = player;
         getMap1Image();
 
-
-
         tamanhoDaPista = 3000;
         int voltas = 3;
         for (int i = 0; i < ( (tamanhoDaPista*voltas)+500 ); i++) {
             Line line = new Line();
             line.z = i*segL;
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < voltas; j++) {
                 percurssoDoMapa(i,tamanhoDaPista, line, j);
             }
             lines.add(line);
@@ -91,6 +88,7 @@ public class Map1 extends MapDefault{
         }
     }
     public void update(){
+
         if (keyH.upPressed){
             playerPosition += (int) player.velocidade;
         }
@@ -99,13 +97,26 @@ public class Map1 extends MapDefault{
         }
         if (keyH.leftPressed ){
             playerX -= (int) (player.aderencia * player.velocidade);
+            if ((player.aderencia * player.velocidade)>=5){
+                player.imageX1 = 177;
+                player.imageX2 = 233;
+            }
         }
         if (keyH.rightPressed ){
             playerX += (int) (player.aderencia * player.velocidade);
+            if ((player.aderencia * player.velocidade)>=5){
+                player.imageX1 = 66;
+                player.imageX2 = 123;
+            }
         }
-        int volta=1;
-        curvasPlayer(volta);
+        if (!keyH.leftPressed&&!keyH.rightPressed){
+            player.imageX1 = 124;
+            player.imageX2 = 176;
 
+
+        }
+
+        curvasPlayer();
         barreirada();
         //System.out.println(playerX);
     }
@@ -159,83 +170,125 @@ public class Map1 extends MapDefault{
 
     }
     public void barreirada(){
-        if ( (playerX < -3040 || playerX> 3040) && player.velocidade>130 ){
-            player.velocidade -= 8;
+        if ( (playerX < -4040 || playerX> 4040) && player.velocidade>120 ){
+            player.velocidade -= 12;
         }
     }
-    public void curvasPlayer(int volta){
+    public void curvasPlayer(){
+        int tes = voltaPercorrida * tamanhoDaPista;
 
-        if (playerPosition > volta*300*600 && playerPosition < volta*350*600){
+        if (playerPosition/600 > tes+(300 ) && playerPosition/600 < tes+(350 )){
+            playerX -= (int) curvaInercia(player.velocidade, 15);
+        }
+        if (playerPosition/600 > tes+(350 ) && playerPosition/600 < tes+(450 )){
+            playerX += (int) curvaInercia(player.velocidade, 7);
+        }
+        if (playerPosition/600 > tes+(520 ) && playerPosition/600 < tes+(570 )){
+            //line.curve = 15;
             playerX -= (int) curvaInercia(player.velocidade, 15);
 
-        }if (playerPosition > 350*600*volta && playerPosition < 450*volta*600){
+        }
+        if (playerPosition/600 > tes+(700 ) && playerPosition/600 < tes+(750 )){
+            //line.curve = 15;
+            playerX -= (int) curvaInercia(player.velocidade, 15);
+
+        }
+        if (playerPosition/600 > tes+(850 ) && playerPosition/600 < tes+(1000 )){
+            //line.curve = 0.7;
+            playerX -= (int) curvaInercia(player.velocidade, 1);
+
+        }
+        if (playerPosition/600 > tes+(1070 ) && playerPosition/600 < tes+(1500 )){
+           // line.curve = -1.5;
             playerX += (int) curvaInercia(player.velocidade, 7);
 
         }
-        if (playerPosition > 520*600*volta && playerPosition < 570*600*volta){
-            //line.curve = 15;
-        }
-        if (playerPosition > 700*600*volta && playerPosition < 750*600*volta){
-            //line.curve = 15;
-        }
-        if (playerPosition > 850*600*volta && playerPosition < 1000*600*volta){
-            //line.curve = 0.7;
-        }
-        if (playerPosition > 1070*600*volta && playerPosition < 1500*600*volta){
-           // line.curve = -1.5;
-        }
-        if (playerPosition > 1550*volta*600 && playerPosition < 1700*volta*600){
+        if (playerPosition/600 > tes+(1550 ) && playerPosition/600 < tes+(1700 )){
            // line.curve = 12;
+            playerX -= (int) curvaInercia(player.velocidade, 12);
+
         }
-        if (playerPosition > 1900*600*volta && playerPosition < 2000*600*volta){
+        if (playerPosition/600 > tes+(1900 ) && playerPosition/600 < tes+(2000 ) ){
            // line.curve = 15;
+            playerX -= (int) curvaInercia(player.velocidade, 15);
+
         }
-        if (playerPosition > 2150*600*volta && playerPosition < 2170*600*volta){
+        if (playerPosition/600 > tes+(2150 ) && playerPosition/600 < tes+(2170 )){
            // line.curve = -20;
+            playerX += (int) curvaInercia(player.velocidade, 20);
+
         }
-        if (playerPosition > 2170*600*volta && playerPosition < 2190*600*volta){
+        if (playerPosition/600 > tes+(2170 ) && playerPosition/600 < tes+(2190 )){
            // line.curve = 20;
+            playerX -= (int) curvaInercia(player.velocidade, 20);
+
         }
-        if (playerPosition > 2195*600*volta && playerPosition < 2215*600*volta){
+        if (playerPosition/600 > tes+(2195 ) && playerPosition/600 < tes+(2215 )){
            // line.curve = 20;
+            playerX -= (int) curvaInercia(player.velocidade, 20);
+
         }
-        if (playerPosition > 2215*600*volta && playerPosition < 2235*600*volta){
+        if (playerPosition/600 > tes+(2215 ) && playerPosition/600 < tes+(2235 )){
            // line.curve = -20;
+            playerX += (int) curvaInercia(player.velocidade, 20);
+
         }
-        if (playerPosition > 2450*600*volta && playerPosition < 3000*600*volta){
+        if (playerPosition/600 > tes+(2450) && playerPosition/600 < tes+(3000)){
            // line.curve = 3;
+            playerX -= (int) curvaInercia(player.velocidade, 3);
+
         }
 
+        if (playerPosition/600 >= tes+(3000) && playerPosition/600 <= tes+(3010)){
+            voltaPercorrida++;
 
-
-
-
-
-
-
-        if (playerPosition <= volta*3000*600){
-            volta= volta+1;
-            //System.out.println(volta);
+            System.out.println("--------------------------------------------------------");
         }
-       // System.out.println(volta);
-
 
     }
     public double curvaInercia(double velocidade, int curva){
-        return ((curva * 3.5) * velocidade) /200;
+        return ((curva * 6) * velocidade) /350;
     }
     public void pointInMap(Graphics2D g2){
+        int TotalPercorrido = voltaPercorrida * tamanhoDaPista;
 
-
-        if (player.velocidade>50){
-            if (playerPosition < 300  * 600 ){
-                pointY = (int) (pointY - 0.001);
-            }
-        }
-
-
-        System.out.println(playerPosition);
         g2.drawImage(point,pointX, pointY, 12,12, null);
+
+
+        switch ( (playerPosition/600) ){
+            case 0:
+                pointX =1069;
+                pointY =130;
+                break;
+            case 75:
+                pointY = 121;
+
+                break;
+            case 150:
+                pointY -= 9;
+                System.out.println("--------------------------");
+                break;
+            case 225:
+                pointY -= 10;
+                break;
+
+            case 300:
+                pointY -= 7;
+                pointX += 6;
+                break;
+            case 350:
+                pointY-=2;
+                pointX += 3;
+                break;
+            case 400:
+                pointX += 3;
+                break;
+            case 450:
+                pointY -= 8;
+                pointX +=4;
+                break;
+
+        }
     }
 
 
