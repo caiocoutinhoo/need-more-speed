@@ -14,7 +14,7 @@ public class Map1 extends MapDefault{
     Player player;
     List<Line> lines = new ArrayList<Line>();
     int N;
-    int pointX=1069,pointY=130;
+    int pointX,pointY;
     int voltaPercorrida=0;
     public Map1(GamePanel gp, KeyHandler keyH, Player player){
         this.gp=gp;
@@ -177,8 +177,6 @@ public class Map1 extends MapDefault{
     public void curvasPlayer(){
         int tes = voltaPercorrida * tamanhoDaPista;
 
-        System.out.println(playerPosition/600);
-
         if (playerPosition/600 > tes+(300 ) && playerPosition/600 < tes+(350 )){
             playerX -= (int) curvaInercia(player.velocidade, 15);
         }
@@ -252,19 +250,45 @@ public class Map1 extends MapDefault{
         return ((curva * 6) * velocidade) /350;
     }
     public void pointInMap(Graphics2D g2){
-        int teste = voltaPercorrida * tamanhoDaPista;
-
-        if (playerPosition/600 == 150+teste){
-            pointY -= 14;
-        }
-        if (playerPosition/600 == 350+teste){
-            pointY -=5;
-            pointX += 5;
-        }
-
-
+        int TotalPercorrido = voltaPercorrida * tamanhoDaPista;
 
         g2.drawImage(point,pointX, pointY, 12,12, null);
+
+
+        switch ( (playerPosition/600) ){
+            case 0:
+                pointX =1069;
+                pointY =130;
+                break;
+            case 75:
+                pointY = 121;
+
+                break;
+            case 150:
+                pointY -= 9;
+                System.out.println("--------------------------");
+                break;
+            case 225:
+                pointY -= 10;
+                break;
+
+            case 300:
+                pointY -= 7;
+                pointX += 6;
+                break;
+            case 350:
+                pointY-=2;
+                pointX += 3;
+                break;
+            case 400:
+                pointX += 3;
+                break;
+            case 450:
+                pointY -= 8;
+                pointX +=4;
+                break;
+
+        }
     }
 
 
