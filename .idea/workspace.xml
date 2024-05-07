@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Adcionando miniMap">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/map/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/MapDefault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/MapDefault.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +119,11 @@
       <workItem from="1714355313070" duration="1891000" />
       <workItem from="1714504758488" duration="305000" />
       <workItem from="1714572410815" duration="9250000" />
+      <workItem from="1714678739252" duration="207000" />
+      <workItem from="1714679391359" duration="3473000" />
+      <workItem from="1714786889635" duration="4336000" />
+      <workItem from="1715016705022" duration="10710000" />
+      <workItem from="1715081229680" duration="3297000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />

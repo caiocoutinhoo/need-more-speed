@@ -2,27 +2,44 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
+
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.io.IOException;
 
 public class Player extends Entity {
     GamePanel gp;
     KeyHandler keyH;
     int temp=0;
+    double contador1 = 0;
 
     public  Player(GamePanel gp, KeyHandler keyH){
         this.gp=gp;
         this.keyH=keyH;
-
+        getMap1Image();
         setDefaultValues();
-    }
 
+    }
+    public void getMap1Image(){
+        try {
+            carro = ImageIO.read(getClass().getResourceAsStream("/car1/car1.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void setDefaultValues(){
-        x = 499;
-        y = 554;
-        aderencia = 0.2;
+        aderencia = 0.15;
         aceleracao = 1;
         limVelocidade = 500;
         freio = 10;
+        defaultImage();
+
+    }
+    public void defaultImage(){
+        imageX1 = 124;
+        imageY1 = 0;
+        imageX2 = 176;
+        imageY2 = 31;
     }
     public void update(){
         if (keyH.upPressed){
@@ -40,15 +57,27 @@ public class Player extends Entity {
             if (velocidade < 0)
                 velocidade=0;
         }
+        carroPneuVelocidade();
 
-        x = Math.max(10, Math.min(1208 - 300, x)); // Limite da tela pro carro não sair
         //verificarVelocidade();
     }
     public void draw(Graphics2D g2)  {
-        g2.setColor(Color.RED);
-        g2.fillRect(x,y, 290, 150);
+        g2.drawImage(carro,512,550,767,700,imageX1, imageY1, imageX2,imageY2,null);
     }
+    public void carroPneuVelocidade(){
+        contador1 += velocidade;
 
+        if (contador1 >= 800 && imageY1 >60){
+            imageY1 -= 62;
+            imageY2 -= 62;
+            contador1 = 0;
+        }
+        if (contador1 >= 800){
+            imageY1 += 31;
+            imageY2 += 31;
+            contador1 = 0;
+        }
+    }
     void verificarVelocidade(){
         temp +=  60;
         if (temp==600){

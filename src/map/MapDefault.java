@@ -10,7 +10,7 @@ public class MapDefault {
     GamePanel gp;
     KeyHandler keyH;
     int tamanhoDaPista;
-    int roadW=3000;
+    int roadW=4000;
     int segL=600; // segmen lenght
     double camD= 0.7; // camera deph
     int playerPosition=0;
@@ -45,6 +45,8 @@ public class MapDefault {
 
 
     }
+
+
 
 }
 
