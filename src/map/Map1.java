@@ -250,12 +250,12 @@ public class Map1 extends MapDefault{
         return ((curva * 6) * velocidade) /350;
     }
     public void pointInMap(Graphics2D g2){
-        int TotalPercorrido = voltaPercorrida * tamanhoDaPista;
+        int totalPercorrido = voltaPercorrida * tamanhoDaPista;
 
         g2.drawImage(point,pointX, pointY, 12,12, null);
 
 
-        switch ( (playerPosition/600) ){
+        switch ( (playerPosition/600) - totalPercorrido ){
             case 0:
                 pointX =1069;
                 pointY =130;
@@ -446,13 +446,6 @@ public class Map1 extends MapDefault{
 
         System.out.println(playerPosition/600);
     }
-
-//case 0:
-//                pointY =130;
-    //            pointX =1069;
-
-//
-
 }
 
 
