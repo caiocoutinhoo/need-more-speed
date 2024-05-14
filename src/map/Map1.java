@@ -250,49 +250,202 @@ public class Map1 extends MapDefault{
         return ((curva * 6) * velocidade) /350;
     }
     public void pointInMap(Graphics2D g2){
-        int TotalPercorrido = voltaPercorrida * tamanhoDaPista;
+        int totalPercorrido = voltaPercorrida * tamanhoDaPista;
 
         g2.drawImage(point,pointX, pointY, 12,12, null);
 
 
-        switch ( (playerPosition/600) ){
+        switch ( (playerPosition/600) - totalPercorrido ){
             case 0:
                 pointX =1069;
                 pointY =130;
                 break;
+            case 30:
+                pointY = 125;
+                break;
             case 75:
-                pointY = 121;
+                pointY = 115;
 
                 break;
             case 150:
-                pointY -= 9;
-                System.out.println("--------------------------");
+                pointY = 105;
+
                 break;
             case 225:
-                pointY -= 10;
+                pointY = 85;
                 break;
 
-            case 300:
-                pointY -= 7;
-                pointX += 6;
+           case 300:
+                pointY = 78;
+                pointX = 1072;
                 break;
-            case 350:
-                pointY-=2;
-                pointX += 3;
+
+                case 350:
+                pointY =72;
+                pointX = 1085;
                 break;
-            case 400:
-                pointX += 3;
+              case 400:
+                pointX = 1087;
                 break;
-            case 450:
-                pointY -= 8;
-                pointX +=4;
+              case 450:
+                pointY = 59;
+                pointX =1091;
+                break;
+
+            case 500:
+
+                pointY = 53;
+                pointX = 1094;
+                break;
+            case 550:
+
+                pointX = 1098;
+
+                break;
+
+            case 600:
+
+                pointX = 1102;
+                break;
+            case 650:
+                pointX = 1108;
+                break;
+            case 700:
+                pointY = 58;
+                pointX = 1118;
+            case 750:
+                pointY = 61;
+                break;
+            case 800:
+                pointY = 62;
+                break;
+            case 850:
+                pointY = 64;
+                break;
+            case 900:
+                pointY = 65;
+                break;
+
+            case 950:
+
+                pointY = 66;
+                break;
+            case 1000:
+
+                pointY = 68;
+                break;
+            case 1050:
+
+                pointY = 73;
+                break;
+
+            case 1100:
+                pointY = 74;
+                break;
+
+            case 1150:
+                pointY = 75;
+                pointX = 1116;
+                break;
+
+            case 1200:
+                pointY = 77;
+                pointX = 1114;
+                break;
+            case 1300:
+                pointY = 81;
+                pointX = 1111;
+                break;
+            case 1350:
+                pointY = 87;
+                pointX = 1103;
+                break;
+            case 1400:
+                pointY = 95;
+                pointX = 1100;
+                break;
+            case 1450:
+                pointY = 103;
+                pointX = 1101;
+                break;
+            case 1500:
+                pointY = 111;
+                pointX = 1106;
+                break;
+            case 1550:
+                pointY = 119;
+                pointX = 1111;
+                break;
+            case 1600:
+                pointY = 133;
+                pointX = 1120;
+                break;
+            case 1650:
+                pointY = 140;
+                pointX = 1133;
+                break;
+            case 1700:
+                pointY = 150;
+                pointX = 1135;
+                break;
+            case 1800:
+                pointY = 156;
+                break;
+
+            case 1900:
+                pointY = 163;
+                pointX = 1133;
+                break;
+            case 2100:
+                pointY =  165;
+                pointX  =1130;
+                break;
+            case 2150:
+                pointY = 168;
+                pointX = 1121;
+                break;
+            case 2250:
+                pointY = 169;
+                pointX = 1117;
+                break;
+            case 2300:
+                pointX = 1111;
+                break;
+            case 2400:
+                pointX = 1104;
+                break;
+            case 2450:
+                pointX = 1102;
+                break;
+            case 2500:
+                pointY = 161;
+                pointX = 1091;
+                break;
+            case 2600:
+                pointY = 157;
+                pointX = 1086;
+                break;
+            case 2700:
+                pointY = 153;
+                pointX = 1081;
+                break;
+            case 2800:
+                pointY = 148;
+                pointX = 1079;
+                break;
+            case 2900:
+                pointY =  142;
+                pointX = 1075;
+                break;
+            case 3000:
+                pointY =130;
+                pointX =1069;
                 break;
 
         }
+
+        System.out.println(playerPosition/600);
     }
-
-
-
 }
 
 
