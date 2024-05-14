@@ -265,21 +265,17 @@ public class Map1 extends MapDefault{
                 break;
             case 75:
                 pointY = 115;
-
                 break;
             case 150:
                 pointY = 105;
-
                 break;
             case 225:
                 pointY = 85;
                 break;
-
            case 300:
                 pointY = 78;
                 pointX = 1072;
                 break;
-
                 case 350:
                 pointY =72;
                 pointX = 1085;
@@ -291,20 +287,14 @@ public class Map1 extends MapDefault{
                 pointY = 59;
                 pointX =1091;
                 break;
-
             case 500:
-
                 pointY = 53;
                 pointX = 1094;
                 break;
             case 550:
-
                 pointX = 1098;
-
                 break;
-
             case 600:
-
                 pointX = 1102;
                 break;
             case 650:
@@ -313,6 +303,7 @@ public class Map1 extends MapDefault{
             case 700:
                 pointY = 58;
                 pointX = 1118;
+                break;
             case 750:
                 pointY = 61;
                 break;
@@ -325,29 +316,22 @@ public class Map1 extends MapDefault{
             case 900:
                 pointY = 65;
                 break;
-
             case 950:
-
                 pointY = 66;
                 break;
             case 1000:
-
                 pointY = 68;
                 break;
             case 1050:
-
                 pointY = 73;
                 break;
-
             case 1100:
                 pointY = 74;
                 break;
-
             case 1150:
                 pointY = 75;
                 pointX = 1116;
                 break;
-
             case 1200:
                 pointY = 77;
                 pointX = 1114;
@@ -391,7 +375,6 @@ public class Map1 extends MapDefault{
             case 1800:
                 pointY = 156;
                 break;
-
             case 1900:
                 pointY = 163;
                 pointX = 1133;
