@@ -11,13 +11,22 @@ public class GamePanel extends JPanel implements Runnable {
     public final int D_W = 1280;
     public final int D_H = 720;
     // TECLADO
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     //  FPS
     int FPS = 60;
+
+    public UI ui = new UI(this);
     Thread gameThread;
     // Player
     Player player = new Player(this,keyH);
     Map1 map1 = new Map1(this, keyH, player);
+
+    //GAME STATE
+
+    public int gameState;
+    public final int titleState = 0;
+    public final int playState =1;
+    public final int pauseState =2;
 
     public GamePanel(){
 
@@ -27,9 +36,17 @@ public class GamePanel extends JPanel implements Runnable {
         this.setFocusable(true);
 
     }
+
+    //setupGAme
+
+
+
+
+
     public void starGameThread(){
         gameThread = new Thread(this);
         gameThread.start();
+        gameState = titleState;
     }
     @Override
     public void run() {
@@ -55,8 +72,15 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
     public void update(){
-        map1.update();
-        player.update();
+
+        if(gameState == playState){
+
+            map1.update();
+            player.update();
+        }if(gameState == pauseState){
+
+        }
+
     }
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -64,9 +88,20 @@ public class GamePanel extends JPanel implements Runnable {
 
         //desenharObjetos(g2);
 
-        map1.draw(g2);
 
-        player.draw(g2);
+        if (gameState == titleState){
+            ui.draw(g2);
+
+        }else{
+
+            map1.draw(g2);
+
+            player.draw(g2);
+
+            //UI
+            ui.draw(g2);
+
+        }
 
 
         g2.dispose();
