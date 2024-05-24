@@ -13,14 +13,14 @@ public class Player extends Entity {
     int temp=0;
     double contador1 = 0;
 
-    public  Player(GamePanel gp, KeyHandler keyH){
+    public Player(GamePanel gp, KeyHandler keyH){
         this.gp=gp;
         this.keyH=keyH;
-        getMap1Image();
+        getCarImage();
         setDefaultValues();
 
     }
-    public void getMap1Image(){
+    public void getCarImage(){
         try {
             carro = ImageIO.read(getClass().getResourceAsStream("/car1/car1.png"));
         } catch (IOException e) {
@@ -29,8 +29,8 @@ public class Player extends Entity {
     }
     public void setDefaultValues(){
         aderencia = 0.15;
-        aceleracao = 1;
-        limVelocidade = 500;
+        aceleracao = 2;
+        limVelocidade = 600;
         freio = 10;
         defaultImage();
 

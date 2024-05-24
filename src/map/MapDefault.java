@@ -13,9 +13,10 @@ public class MapDefault {
     int roadW=4000;
     int segL=600; // segmen lenght
     double camD= 0.7; // camera deph
-    int playerPosition=0;
-    int playerX=0;
-    public BufferedImage miniMap, point;
+    public int playerPosition=0;
+    public int playerX=0;
+    public BufferedImage miniMap, point, backgroundUsado;
+    public BufferedImage[] background;
 
     public void desenharQuadrado(Graphics g, Color c, int x1, int y1, int w1, int x2, int y2, int w2){
         int[] xPoints={x1-w1,x2-w2,x2+w2,x1+w1};

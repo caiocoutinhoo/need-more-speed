@@ -5,7 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Agora minimap completo junto à volta">
+      <change afterPath="$PROJECT_DIR$/res/enemie/car1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back-map1-nuvem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back-map1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/map1/back/pixil-frame-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Enemie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/MapDefault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/MapDefault.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +45,15 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="mapa-viniciusteste" />
+        <entry key="$PROJECT_DIR$" value="map1-resultado" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;caiocoutinhoo&quot;
   }
 }</component>
   <component name="GithubPullRequestsUISettings">
@@ -54,25 +79,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;map1-resultado&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "map1-background",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\caiom\OneDrive\Área de Trabalho\Caio\need-more-speed\src" />
+      <recent name="C:\Users\caiom\OneDrive\Área de Trabalho\Caio\need more speed\res\map1\back" />
+      <recent name="C:\Users\caiom\OneDrive\Área de Trabalho\Caio\need more speed\res\Enemie" />
     </key>
   </component>
   <component name="RunManager">
@@ -92,16 +115,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-11.0.22-temurin-11.0.22-4caba194b151-3f037115" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -114,29 +129,11 @@
       <workItem from="1713275122051" duration="2168000" />
       <workItem from="1713288738868" duration="9506000" />
       <workItem from="1713317536493" duration="1443000" />
-      <workItem from="1713358714145" duration="5495000" />
-      <workItem from="1713536438475" duration="14341000" />
-      <workItem from="1713564059818" duration="8415000" />
-      <workItem from="1713574681433" duration="1251000" />
-      <workItem from="1713648024595" duration="2442000" />
-      <workItem from="1713885230736" duration="5750000" />
-      <workItem from="1713972681561" duration="128000" />
-      <workItem from="1714070049770" duration="4522000" />
-      <workItem from="1714355313070" duration="1891000" />
-      <workItem from="1714504758488" duration="305000" />
-      <workItem from="1714572410815" duration="9250000" />
-      <workItem from="1714678739252" duration="207000" />
-      <workItem from="1714679391359" duration="3473000" />
-      <workItem from="1714786889635" duration="4336000" />
-      <workItem from="1715016705022" duration="10710000" />
-      <workItem from="1715081229680" duration="3297000" />
-      <workItem from="1715129879614" duration="300000" />
-      <workItem from="1715130196167" duration="862000" />
-      <workItem from="1715131140041" duration="3773000" />
-      <workItem from="1715209862606" duration="998000" />
-      <workItem from="1715267772981" duration="4882000" />
-      <workItem from="1715387598588" duration="8780000" />
-      <workItem from="1715563381869" duration="4385000" />
+      <workItem from="1713358714145" duration="5452000" />
+      <workItem from="1716298499271" duration="13347000" />
+      <workItem from="1716388056432" duration="10329000" />
+      <workItem from="1716487933314" duration="603000" />
+      <workItem from="1716559227635" duration="6395000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -210,63 +207,7 @@
       <option name="project" value="LOCAL" />
       <updated>1713359974713</updated>
     </task>
-    <task id="LOCAL-00010" summary="Cenario básico e Player Parte 4">
-      <option name="closed" value="true" />
-      <created>1713367512583</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1713367512583</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Cenario básico e Player Parte 5">
-      <option name="closed" value="true" />
-      <created>1713551690976</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1713551690976</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Cenario com colinas e curvas">
-      <option name="closed" value="true" />
-      <created>1713554945075</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1713554945075</updated>
-    </task>
-    <task id="LOCAL-00013" summary="criando o primeiro mapa">
-      <option name="closed" value="true" />
-      <created>1713574635956</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1713574635956</updated>
-    </task>
-    <task id="LOCAL-00014" summary="criando o primeiro mapa e correção de bugs">
-      <option name="closed" value="true" />
-      <created>1714504983563</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1714504983563</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Adcionando miniMap">
-      <option name="closed" value="true" />
-      <created>1714591383648</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1714591383648</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Agora minimap completo junto à volta">
-      <option name="closed" value="true" />
-      <created>1715478755602</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1715478755602</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,20 +231,13 @@
     <MESSAGE value="Cenario básico e Player" />
     <MESSAGE value="Cenario básico e Player Parte 2" />
     <MESSAGE value="Cenario básico e Player Parte 3" />
-    <MESSAGE value="Cenario básico e Player Parte 4" />
-    <MESSAGE value="Cenario básico e Player Parte 5" />
-    <MESSAGE value="Cenario com colinas e curvas" />
-    <MESSAGE value="criando o primeiro mapa" />
-    <MESSAGE value="criando o primeiro mapa e correção de bugs" />
-    <MESSAGE value="Adcionando miniMap" />
-    <MESSAGE value="Agora minimap completo junto à volta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agora minimap completo junto à volta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cenario básico e Player Parte 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
       </breakpoints>
