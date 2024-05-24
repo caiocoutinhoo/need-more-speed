@@ -9,7 +9,6 @@ public class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
         window.setTitle("Need More Speed");
-
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
         window.pack();

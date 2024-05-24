@@ -20,12 +20,10 @@ public class GamePanel extends JPanel implements Runnable {
     Map1 map1 = new Map1(this, keyH, player);
 
     public GamePanel(){
-
         this.setPreferredSize( new Dimension (D_W, D_H));
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
-
     }
     public void starGameThread(){
         gameThread = new Thread(this);
@@ -51,7 +49,6 @@ public class GamePanel extends JPanel implements Runnable {
                 repaint();
                 delta--;
             }
-
         }
     }
     public void update(){
@@ -62,15 +59,9 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        //desenharObjetos(g2);
-
         map1.draw(g2);
-
-        player.draw(g2);
-
-
+       // player.draw(g2);
         g2.dispose();
-
     }
 
 }

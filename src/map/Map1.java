@@ -1,26 +1,32 @@
 package map;
 
+import entity.Enemie;
 import entity.Player;
 import main.GamePanel;
 import main.KeyHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Map1 extends MapDefault{
     Player player;
+    int contadorFrameBack = 0, frameBack = 20;
     List<Line> lines = new ArrayList<Line>();
     int N;
     int pointX,pointY;
     int voltaPercorrida=0;
+    public Enemie[] enemies = new Enemie[5];
+    public BufferedImage nuvem;
     public Map1(GamePanel gp, KeyHandler keyH, Player player){
         this.gp=gp;
         this.keyH=keyH;
         this.player = player;
         getMap1Image();
+        enemieCreate();
 
         tamanhoDaPista = 3000;
         int voltas = 3;
@@ -39,8 +45,8 @@ public class Map1 extends MapDefault{
     void desenharObjetos(Graphics2D g){
 
         // Desenhar céu
-        g.setColor(new Color(0x4141EE));
-        g.fillRect(0,0, 1280, 700);
+        //g.setColor(new Color(0x4141EE));
+        //g.fillRect(0,0, 1280, 700);
 
         // Desenhar ruas
 
@@ -59,10 +65,10 @@ public class Map1 extends MapDefault{
             if (l.Y > 0 && l.Y < maxY) {
                 maxY = l.Y;
 
-                Color grass= ((n/2)%2)==0? new Color(16,200,16):new Color(0,154,0);
+                Color grass= ((n/2)%2)==0? new Color(112, 191, 151):new Color(98, 182, 116);
                 Color rumble= ((n/2)%2)==0? new Color(255,255,255):new Color(255,0,0);
-                Color road= ((n/2)%2)==0? new Color(38, 38, 38):new Color(26, 26, 26);
-                Color midel =  ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(0x131313);
+                Color road= ((n/2)%2)==0? new Color(117, 117, 117):new Color(84, 84, 84);
+                Color midel =  ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(0x545454);
 
                 Line p = null;
 
@@ -80,12 +86,34 @@ public class Map1 extends MapDefault{
         }
     }
     public void getMap1Image(){
+        background = new BufferedImage[13];
         try {
             miniMap = ImageIO.read(getClass().getResourceAsStream("/map1/miniMap-01.png"));
             point = ImageIO.read(getClass().getResourceAsStream("/map1/point.png"));
+            backgroundUsado = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-0.png"));
+            background[0] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-0.png"));
+            background[1] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-1.png"));
+            background[2] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-2.png"));
+            background[3] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-3.png"));
+            background[4] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-4.png"));
+            background[5] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-5.png"));
+            background[6] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-6.png"));
+            background[7] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-7.png"));
+            background[8] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-8.png"));
+            background[9] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-9.png"));
+            background[10] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-10.png"));
+            background[11] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-11.png"));
+            background[12] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-12.png"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void enemieCreate(){
+        enemies[0] = new Enemie(gp,200, 550, 1, player, this, 400, 45000);
+        enemies[1] = new Enemie(gp,1080, 550, 1, player, this, 500, 5000);
+
+
     }
     public void update(){
 
@@ -115,15 +143,25 @@ public class Map1 extends MapDefault{
 
 
         }
+        contadorFrameBack += 1;
+        enemies[0].update();
+        enemies[1].update();
 
         curvasPlayer();
         barreirada();
         //System.out.println(playerX);
+        if (contadorFrameBack == 12*8)
+            contadorFrameBack = 0;
     }
     public void draw(Graphics2D g2){
+        background(g2);
         desenharObjetos(g2);
 
         g2.drawImage(miniMap,1050, 50, 130,130, null);
+        enemies[0].draw(g2);
+        enemies[1].draw(g2);
+
+        player.draw(g2);
         pointInMap(g2);
     }
     public void percurssoDoMapa(int i, int tamanho, Line line, int v){
@@ -428,6 +466,52 @@ public class Map1 extends MapDefault{
         }
 
         System.out.println(playerPosition/600);
+    }
+    public void background(Graphics2D g2){
+        switch (contadorFrameBack){
+            case 0:
+                backgroundUsado = background[0];
+                break;
+            case 8:
+                backgroundUsado = background[1];
+                break;
+            case 2*8:
+                backgroundUsado = background[2];
+                break;
+            case 3*8:
+                backgroundUsado = background[3];
+                break;
+            case 4*8:
+                backgroundUsado = background[4];
+                break;
+            case 5*8:
+                backgroundUsado = background[5];
+                break;
+            case 6*8:
+                backgroundUsado = background[6];
+                break;
+            case 7*8:
+                backgroundUsado = background[7];
+                break;
+            case 8*8:
+                backgroundUsado = background[8];
+                break;
+            case 9*8:
+                backgroundUsado = background[9];
+                break;
+            case 10*8:
+                backgroundUsado = background[10];
+                break;
+            case 11*8:
+                backgroundUsado = background[11];
+                break;
+            case 12 *8:
+                backgroundUsado = background[12];
+                break;
+
+        }
+
+        g2.drawImage(backgroundUsado, -50,-30,794 * 7/4,285* 7/4, null);
     }
 }
 
