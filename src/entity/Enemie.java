@@ -77,7 +77,14 @@ public class Enemie extends Entity{
             heigh = heigh*-1;
 
         x = x - (map1.playerX)/9;
+
+        colisao();
     }
+
+    public void colisao() {
+        System.out.println(player.velocidade);
+    }
+
     public void draw(Graphics2D g2)  {
         g2.drawImage(carro, x, y, width, heigh, null);
     }

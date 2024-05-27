@@ -14,10 +14,10 @@ import java.util.List;
 
 public class Map1 extends MapDefault{
     Player player;
-    int contadorFrameBack = 0, frameBack = 20;
+    int contadorFrameBack = 0;
     List<Line> lines = new ArrayList<Line>();
     int N;
-    int pointX,pointY;
+    int pointX,pointY, backX = -60, backY = -34;
     int voltaPercorrida=0;
     public Enemie[] enemies = new Enemie[5];
     public BufferedImage nuvem;
@@ -65,7 +65,7 @@ public class Map1 extends MapDefault{
             if (l.Y > 0 && l.Y < maxY) {
                 maxY = l.Y;
 
-                Color grass= ((n/2)%2)==0? new Color(112, 191, 151):new Color(98, 182, 116);
+                Color grass= ((n/2)%2)==0? new Color(112, 191, 151):new Color(102, 189, 120);
                 Color rumble= ((n/2)%2)==0? new Color(255,255,255):new Color(255,0,0);
                 Color road= ((n/2)%2)==0? new Color(117, 117, 117):new Color(84, 84, 84);
                 Color midel =  ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(0x545454);
@@ -143,13 +143,13 @@ public class Map1 extends MapDefault{
 
 
         }
-        contadorFrameBack += 1;
         enemies[0].update();
         enemies[1].update();
 
         curvasPlayer();
         barreirada();
-        //System.out.println(playerX);
+
+        contadorFrameBack += 1;
         if (contadorFrameBack == 12*8)
             contadorFrameBack = 0;
     }
@@ -465,7 +465,6 @@ public class Map1 extends MapDefault{
 
         }
 
-        System.out.println(playerPosition/600);
     }
     public void background(Graphics2D g2){
         switch (contadorFrameBack){
@@ -510,8 +509,8 @@ public class Map1 extends MapDefault{
                 break;
 
         }
-
-        g2.drawImage(backgroundUsado, -50,-30,794 * 7/4,285* 7/4, null);
+        backX = -60 + playerX/200;
+        g2.drawImage(backgroundUsado, backX,backY,794 * 7/4,285* 7/4, null);
     }
 }
 
