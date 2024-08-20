@@ -52,7 +52,7 @@ public class UI {
 
         //TITLE NAME
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 78F));
-        String text = "Need More Speed";
+        String text = "teste More Speed";
         int x = getXforCenteredText(text);
         int y = gp.D_H/4;
 
