@@ -1,5 +1,7 @@
-package entity;
+package entity.enemie;
 
+import entity.Entity;
+import entity.player.Player;
 import main.GamePanel;
 import map.Map1;
 
@@ -7,7 +9,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
 
-public class Enemie extends Entity{
+public class Enemie extends Entity {
     GamePanel gp;
     Player player;
     Map1 map1;
