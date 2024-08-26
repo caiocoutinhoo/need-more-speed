@@ -8,12 +8,18 @@ import java.io.IOException;
 public class UI {
     GamePanel gp;
     Graphics2D g2;
-    BufferedImage seta;
+    BufferedImage seta, background;
 
     public int commandNum = 0;
 
     public UI(GamePanel gp){
         this.gp = gp;
+
+        try{
+            background = ImageIO.read(getClass().getResourceAsStream("/ui/menu.png"));
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
         try {
             seta = ImageIO.read(getClass().getResourceAsStream("/ui/seta.png"));
@@ -44,55 +50,28 @@ public class UI {
     }
     public void drawTitleScreen(){
 
-        //BACKGROUND
-        Color azulEscuro = new Color(0, 35, 91);
-        g2.setColor(azulEscuro);
-        g2.fillRect(0,0, gp.D_W, gp.D_H);
-
-
-        //TITLE NAME
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 78F));
-        String text = "teste More Speed";
+        String text = "Need More Speed";
         int x = getXforCenteredText(text);
         int y = gp.D_H/4;
 
 
-        //SOMBRA
-        g2.setColor(Color.black);
-        g2.drawString(text, x+5, y+5 );
-
-// cor principal
-        Color vermelho = new Color(226, 24, 24);
-        g2.setColor(vermelho);
-        g2.drawString(text, x,y);
-
-        //MENU
-
-        text = "JOGAR";
         x = getXforCenteredText(text);
         y += gp.D_W/8;
-        g2.setColor(Color.black);
-        g2.drawString(text, x+5, y+5 );
-        g2.setColor(vermelho);
-        g2.drawString(text, x,y);
-        if(commandNum == 0){
-            //g2.drawString(">", x - 100, y);
 
-            g2.drawImage(seta, x -180, y-75, 100, 100, null);
+
+        g2.drawImage(background, 0, 0, gp.D_W, gp.D_H, null);
+        if(commandNum == 0){
+
+            g2.drawImage(seta, x , y+40, 100, 100, null);
         }
 
 
 
-        text = "SAIR";
         x = getXforCenteredText(text);
         y += gp.D_W/10;
-        g2.setColor(Color.black);
-        g2.drawString(text, x+5, y+5 );
-        g2.setColor(vermelho);
-        g2.drawString(text, x,y);
+
         if(commandNum == 1){
-           // g2.drawString(">", x - 100, y);
-            g2.drawImage(seta, x - 125, y-75, 100, 100, null);
+            g2.drawImage(seta, x +100, y+30, 100, 100, null);
 
         }
 
