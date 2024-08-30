@@ -41,6 +41,9 @@ public class GamePanel extends JPanel implements Runnable {
     }
     @Override
     public void run() {
+
+        this.requestFocus();
+
         double drawnInterval = (double) 1000000000 /FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
@@ -80,6 +83,9 @@ public class GamePanel extends JPanel implements Runnable {
             map1.draw(g2);
             //UI
             ui.draw(g2);
+            int score = 0;
+            g.setFont(new Font("TimesRoman", Font.PLAIN, 24));
+            g.drawString("Pontos: " + score, 15, 42);
         }
         g2.dispose();
     }

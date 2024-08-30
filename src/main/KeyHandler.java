@@ -18,6 +18,9 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
 
+        if(code == KeyEvent.VK_ESCAPE)       //apertar Esc pra fechar janela (apenas para testar o jogo mais rápido
+            System.exit(1);           //sem ter que ficar indo até o mouse pra fechar)
+
         if(gp.gameState == gp.titleState){
             if (code == KeyEvent.VK_W){
                 gp.ui.commandNum--;
