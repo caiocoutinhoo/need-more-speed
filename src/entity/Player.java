@@ -12,6 +12,8 @@ public class Player extends Entity {
     KeyHandler keyH;
     int temp=0;
     double contador1 = 0;
+    private int carID;
+
 
     public Player(GamePanel gp, KeyHandler keyH){
         this.gp=gp;
@@ -22,6 +24,7 @@ public class Player extends Entity {
     }
     public void getCarImage(){
         try {
+            //int index = getcarID();
             carro = ImageIO.read(getClass().getResourceAsStream("/car1/car1.png"));
         } catch (IOException e) {
             e.printStackTrace();
@@ -86,5 +89,13 @@ public class Player extends Entity {
             temp = 0;
         }
 
+    }
+
+    public int getCarID() {
+        return carID;
+    }
+
+    public void setCarID(int carID) {
+        this.carID = carID;
     }
 }

@@ -78,7 +78,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void update(){
         if(gameState == playState){
-
+            //player.setCarID(ui.getCarIndex());
             map1.update();
             player.update();
         }if(gameState == pauseState){
