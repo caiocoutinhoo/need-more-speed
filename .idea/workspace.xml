@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Backgrond">
-      <change afterPath="$PROJECT_DIR$/res/ui/menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/ui/car1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/ui/car2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/ui/garage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/ui/seta_esq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/GarageUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/TitleScreenUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/CarAsset.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="map1-background" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,9 +72,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "UI__Branch",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/vinicius/idea-IU-233.14475.28/need-more-speed/res/ui",
+    "last_opened_file_path": "C:/Users/guilh/IdeaProjects/need-more-speed/res/ui",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,7 +98,7 @@
       <module name="need-more-speed" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="UI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,7 +115,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-11.0.22-temurin-11.0.22-4caba194b151-3f037115" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.20224.419" />
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-IU-242.20224.419" />
       </set>
     </attachedChunks>
   </component>
@@ -129,6 +138,7 @@
       <workItem from="1716559227635" duration="9364000" />
       <workItem from="1724089986401" duration="48000" />
       <workItem from="1724435720563" duration="1376000" />
+      <workItem from="1725107343280" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />

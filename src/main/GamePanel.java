@@ -1,8 +1,11 @@
 package main;
+import UI.UI;
 import entity.Player;
 import map.Map1;
 import javax.swing.*;
 import java.awt.*;
+import UI.TitleScreenUI;
+import UI.GarageUI;
 
 
 public class GamePanel extends JPanel implements Runnable {
@@ -15,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable {
     //  FPS
     int FPS = 60;
     // UI
-    public UI ui = new UI(this);
+    public UI ui = new TitleScreenUI(this);
     Thread gameThread;
     // Player
     Player player = new Player(this,keyH);
@@ -25,6 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState =2;
+    public final int garageState = 3;
 
     public GamePanel(){
         this.setPreferredSize( new Dimension (D_W, D_H));
@@ -61,13 +65,31 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
+
+    public int check_class(UI userInterface){
+        if(userInterface instanceof GarageUI){
+            return garageState;
+        }
+        if(userInterface instanceof TitleScreenUI){
+            return titleState;
+        }
+        return -1;
+    }
+
     public void update(){
         if(gameState == playState){
 
             map1.update();
             player.update();
         }if(gameState == pauseState){
-
+            if(check_class(ui) != pauseState){
+                ui = new GarageUI(this);
+            }
+        }
+        if(gameState == garageState){
+            if(check_class(ui) != garageState){
+                ui = new GarageUI(this);
+            }
         }
     }
     public void paintComponent(Graphics g){
@@ -76,8 +98,13 @@ public class GamePanel extends JPanel implements Runnable {
 
         if (gameState == titleState){
             ui.draw(g2);
-        }else{
+        }else if(gameState == garageState){
+            ui.draw(g2);
+        }
+        else if(gameState == playState){
             map1.draw(g2);
+        }else{
+
             //UI
             ui.draw(g2);
         }
