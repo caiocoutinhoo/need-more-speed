@@ -8,12 +8,13 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class GarageUI extends UI {
-    BufferedImage seta,seta_esq, car1,car2;
+    BufferedImage seta,seta_esq, car1,car2,car3;
     Graphics2D g2;
     int carXOffSet = 200;
     int carYOffSet = 370;
-    int carImageWidth = 400;
-    int carImageHeight = 300;
+    int carImageWidth = 150;
+    int carImageHeight = 200;
+    int forward = -240;
     public GarageUI(GamePanel gp) {
         super(gp, "/ui/garage.png");
         try {
@@ -22,6 +23,7 @@ public class GarageUI extends UI {
             // Carregar todas as imagens
             car1 = ImageIO.read(getClass().getResourceAsStream("/ui/car1.png"));
             car2 = ImageIO.read(getClass().getResourceAsStream("/ui/car2.png"));
+            car3 = ImageIO.read(getClass().getResourceAsStream("/ui/car3.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,46 +31,35 @@ public class GarageUI extends UI {
 
     public void draw( Graphics2D g2){
         this.g2 = g2;
-        String text = "Garagem";
-        int x = 60;
-        int y = gp.D_H/4;
 
-        y += gp.D_W/8;
+        int car1xPos = gp.D_W - 1250;;
+        int car1yPos = gp.D_H - 200;
+
+        int car2xPos = gp.D_W - 1025;;
+        int car2yPos = gp.D_H - 200;
+
+        int car3xPos = gp.D_W - 800;;
+        int car3yPos = gp.D_H - 200;
 
 
         g2.drawImage(background, 0, 0, gp.D_W, gp.D_H, null);
 
-        int carX = getXforCenteredText(text);
-        int carY = getXforCenteredText(text);
-
-        if(getCarIndex() == 0){
-            g2.drawImage(car1, carX - carXOffSet, carY - carYOffSet, carImageWidth, carImageHeight, null);
+        if(getCarIndex() == 0) {
+            car1yPos += forward;
+            car2yPos = gp.D_H - 200;
         }
-        if(getCarIndex() == 1){
-            g2.drawImage(car2, carX - carXOffSet, carY - carYOffSet, carImageWidth, carImageHeight, null);
+        if(getCarIndex() == 1) {
+            car2yPos += forward;
+            car1yPos = gp.D_H - 200;
         }
-
-
-        if(getCarIndex() != 0){
-            g2.drawImage(seta_esq, x - 30 , y, 200, 200, null);
+        if(getCarIndex() == 2) {
+            car3yPos += forward;
+            car2yPos = gp.D_H - 200;
         }
+        g2.drawImage(car1, car1xPos , car1yPos , carImageWidth, carImageHeight, null);
+        g2.drawImage(car2, car2xPos, car2yPos, carImageWidth, carImageHeight, null);
+        g2.drawImage(car3, car3xPos, car3yPos, carImageWidth, carImageHeight, null);
 
-        if(getCarIndex() != getNumberOfCars() -1){
-            g2.drawImage(seta, x +1010, y, 200, 200, null);
-        }
 
-
-    }
-
-    public int getXforCenteredText(String text){
-        int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        int x = gp.D_W/2 - length/2;
-        return x;
-    }
-
-    public int getYforCenteredText(String text){
-        int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getHeight();
-        int y = gp.D_H/2 - length/2;
-        return y;
     }
 }

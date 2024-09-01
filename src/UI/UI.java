@@ -13,7 +13,7 @@ public abstract class UI {
     BufferedImage  background;
     public boolean selected = false;
     private int carIndex = 0;
-    private int numberOfCars = 2;
+    private int numberOfCars = 3;
 
     public int commandNum = 0;
 
