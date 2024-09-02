@@ -4,6 +4,7 @@ import entity.Entity;
 import entity.player.Player;
 import main.GamePanel;
 import map.Map1;
+import map.MapDefault;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class Enemie extends Entity {
     GamePanel gp;
     Player player;
-    Map1 map1;
+    MapDefault map;
     int xInMap;
     int heigh;
     int width;
@@ -20,13 +21,13 @@ public class Enemie extends Entity {
     int xOriginal;
     int yOriginal;
     boolean direita = true;
-    public Enemie(GamePanel gp, int x, int y, double aceleracao, Player player, Map1 map1, int lim, double enemiePosition){
+    public Enemie(GamePanel gp, int x, int y, double aceleracao, Player player, MapDefault map, int lim, double enemiePosition){
         this.gp = gp;
         this.x = x;
         this.y = y;
         this.aceleracao = aceleracao;
         this.player = player;
-        this.map1 = map1;
+        this.map = map;
         this.limVelocidade = lim;
         getCarImage();
         xOriginal = this.x;
@@ -48,7 +49,7 @@ public class Enemie extends Entity {
     public void update(){
         acelerar();
 
-        heigh = (int) ((30*5) + ( map1.playerPosition - enemiePosition)/300);
+        heigh = (int) ((30*5) + ( map.playerPosition - enemiePosition)/300);
         if (heigh<0)
             heigh = 0;
         double h = 48* ((double) heigh /30);
@@ -60,17 +61,17 @@ public class Enemie extends Entity {
 
         }
 
-        y = (int) ((yOriginal) + ( map1.playerPosition - enemiePosition)/400);
+        y = (int) ((yOriginal) + ( map.playerPosition - enemiePosition)/400);
         if (y < 460) //452
             y=460;
 
         if (!direita){
-            x = (int) ((xOriginal) - ( map1.playerPosition - enemiePosition)/100);
+            x = (int) ((xOriginal) - ( map.playerPosition - enemiePosition)/100);
             if (x > 638)
                 x = 638;
         }
         if (direita){
-            x = (int) ((xOriginal) + ( map1.playerPosition - enemiePosition)/100);
+            x = (int) ((xOriginal) + ( map.playerPosition - enemiePosition)/100);
             if (x < 642)
                 x = 642;
         }
@@ -78,7 +79,7 @@ public class Enemie extends Entity {
         if (heigh<0)
             heigh = heigh*-1;
 
-        x = x - (map1.playerX)/9;
+        x = x - (map.playerX)/9;
 
         colisao();
     }

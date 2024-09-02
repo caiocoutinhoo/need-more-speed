@@ -4,12 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Backgrond">
-      <change afterPath="$PROJECT_DIR$/src/entity/player/PlayerConfig.java" afterDir="false" />
+    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="enemies">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Enemie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Enemie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/player/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back-map1-nuvem.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back-map1-nuvem.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back-map1.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back-map1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-0.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-10.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-11.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-12.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-3.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-4.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-5.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-6.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-7.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/back/pixil-frame-9.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/back/pixil-frame-9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/miniMap-01.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/miniMap-01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/map1/point.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/map/point.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/enemie/Enemie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/enemie/Enemie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/enemie/EnemiesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/enemie/EnemiesService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/map/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +74,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature-enimies&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -127,6 +142,10 @@
       <workItem from="1724335374820" duration="102000" />
       <workItem from="1724355418335" duration="3447000" />
       <workItem from="1724414234596" duration="24000" />
+      <workItem from="1725020850796" duration="729000" />
+      <workItem from="1725026211457" duration="13000" />
+      <workItem from="1725276853226" duration="26000" />
+      <workItem from="1725298860345" duration="2027000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -242,15 +261,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/map/Map1.java</url>
-          <line>472</line>
-          <properties class="map.Map1" method="background">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

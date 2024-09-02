@@ -1,6 +1,7 @@
 package map;
 
 import entity.enemie.Enemie;
+import entity.enemie.EnemiesService;
 import entity.player.Player;
 import main.GamePanel;
 import main.KeyHandler;
@@ -19,12 +20,14 @@ public class Map1 extends MapDefault {
     int N;
     int pointX, pointY, backX = -60, backY = -34;
     int voltaPercorrida = 0;
+    EnemiesService enemiesService;
   //  Enemie[] enemies = new Enemie[5];
 
     public Map1(GamePanel gp, KeyHandler keyH, Player player) {
         this.gp = gp;
         this.keyH = keyH;
         this.player = player;
+        enemiesService = new EnemiesService(gp, player, this);
         getMap1Image();
         enemieCreate();
 
@@ -83,22 +86,22 @@ public class Map1 extends MapDefault {
     public void getMap1Image() {
         background = new BufferedImage[13];
         try {
-            miniMap = ImageIO.read(getClass().getResourceAsStream("/map1/miniMap-01.png"));
-            point = ImageIO.read(getClass().getResourceAsStream("/map1/point.png"));
-            backgroundUsado = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-0.png"));
-            background[0] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-0.png"));
-            background[1] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-1.png"));
-            background[2] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-2.png"));
-            background[3] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-3.png"));
-            background[4] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-4.png"));
-            background[5] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-5.png"));
-            background[6] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-6.png"));
-            background[7] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-7.png"));
-            background[8] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-8.png"));
-            background[9] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-9.png"));
-            background[10] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-10.png"));
-            background[11] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-11.png"));
-            background[12] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-12.png"));
+            miniMap = ImageIO.read(getClass().getResourceAsStream("/map/miniMap-01.png"));
+            point = ImageIO.read(getClass().getResourceAsStream("/map/point.png"));
+            backgroundUsado = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-0.png"));
+            background[0] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-0.png"));
+            background[1] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-1.png"));
+            background[2] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-2.png"));
+            background[3] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-3.png"));
+            background[4] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-4.png"));
+            background[5] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-5.png"));
+            background[6] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-6.png"));
+            background[7] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-7.png"));
+            background[8] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-8.png"));
+            background[9] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-9.png"));
+            background[10] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-10.png"));
+            background[11] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-11.png"));
+            background[12] = ImageIO.read(getClass().getResourceAsStream("/map/back/pixil-frame-12.png"));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -107,8 +110,8 @@ public class Map1 extends MapDefault {
 
     public void enemieCreate() {
 
-        Enemie enemieLeft = new Enemie(gp, 200, 550, 1, player, this, 400, 0);
-        Enemie enemieRight = new Enemie(gp, 1080, 550, 1, player, this, 500, 0);
+        //Enemie enemieLeft = new Enemie(gp, 200, 550, 1, player, this, 400, 0);
+        //Enemie enemieRight = new Enemie(gp, 1080, 550, 1, player, this, 500, 0);
 
     }
 
@@ -140,6 +143,7 @@ public class Map1 extends MapDefault {
 
 
         }
+        enemiesService.updateEnemies(playerPosition);
         //enemies[0].update();
         //enemies[1].update();
 
@@ -156,6 +160,7 @@ public class Map1 extends MapDefault {
         desenharObjetos(g2);
 
         g2.drawImage(miniMap, 1050, 50, 130, 130, null);
+        enemiesService.drawEnemies(g2);
         //enemies[0].draw(g2);
         //enemies[1].draw(g2);
 
