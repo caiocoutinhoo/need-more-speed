@@ -31,7 +31,7 @@ public class GarageUI extends UI {
 
     public void draw( Graphics2D g2){
         this.g2 = g2;
-
+        super.setG2(g2);
         int car1xPos = gp.D_W - 1250;;
         int car1yPos = gp.D_H - 200;
 

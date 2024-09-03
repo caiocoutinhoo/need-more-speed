@@ -49,6 +49,7 @@ public class KeyHandler implements KeyListener {
                 gp.ui.selected = true;
                 if(gp.ui.selected){
                     gp.gameState = gp.playState;
+
                 }
 
             }
@@ -67,6 +68,7 @@ public class KeyHandler implements KeyListener {
             rightPressed = true;
         }
         if (code == KeyEvent.VK_P){
+            //code = KeyEvent.VK_A;
             if(gp.gameState == gp.playState){
                 gp.gameState = gp.pauseState;
             }else if(gp.gameState == gp.pauseState){

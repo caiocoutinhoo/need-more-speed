@@ -83,9 +83,7 @@ public class GamePanel extends JPanel implements Runnable {
             map1.update();
             player.update();
         }if(gameState == pauseState){
-            if(check_class(ui) != pauseState){
-                ui = new PauseUI(this);
-            }
+            ui.drawPause();
             //ui.DrawPauseScreen();
         }
         if(gameState == garageState){
@@ -105,7 +103,14 @@ public class GamePanel extends JPanel implements Runnable {
         }
         else if(gameState == playState){
             map1.draw(g2);
-        }else{
+        }else if(gameState == pauseState){
+            map1.draw(g2);
+            ui.setG2(g2);
+            ui.drawPause();
+
+
+        }
+        else{
 
             //UI
             ui.draw(g2);
