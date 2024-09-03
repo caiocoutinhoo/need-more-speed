@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="CarID">
-      <change afterPath="$PROJECT_DIR$/res/ui/pauseBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/PauseUI.java" afterDir="false" />
+    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Menu de Pausa">
+      <change afterPath="$PROJECT_DIR$/res/ui/pause.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/GarageUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/GarageUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/PauseUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/PauseUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/TitleScreenUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/TitleScreenUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
@@ -39,12 +39,12 @@
     &quot;assignee&quot;: &quot;caiocoutinhoo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/caiocoutinhoo/need-more-speed.git",
-    "accountId": "c892e2d8-21ef-4909-8c42-77f07b4ef2d2"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/caiocoutinhoo/need-more-speed.git&quot;,
+    &quot;accountId&quot;: &quot;c892e2d8-21ef-4909-8c42-77f07b4ef2d2&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -54,24 +54,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "UI__Branch",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/guilherme/IdeaProjects/need-more-speed/res/ui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;UI__Branch&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/guilherme/IdeaProjects/need-more-speed/res/ui&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res/ui" />
@@ -136,7 +136,9 @@
       <workItem from="1725107343280" duration="1078000" />
       <workItem from="1725115431801" duration="295000" />
       <workItem from="1725206592600" duration="2216000" />
-      <workItem from="1725368354248" duration="2050000" />
+      <workItem from="1725368354248" duration="2300000" />
+      <workItem from="1725371520959" duration="688000" />
+      <workItem from="1725400740712" duration="650000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -234,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725115657386</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Menu de Pausa">
+      <option name="closed" value="true" />
+      <created>1725370590960</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1725370590960</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +271,8 @@
     <MESSAGE value="Backgrond" />
     <MESSAGE value="GarageUI" />
     <MESSAGE value="CarID" />
-    <option name="LAST_COMMIT_MESSAGE" value="CarID" />
+    <MESSAGE value="Menu de Pausa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Menu de Pausa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

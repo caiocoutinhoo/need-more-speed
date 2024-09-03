@@ -33,7 +33,7 @@ public class TitleScreenUI extends UI {
 
 
         g2.drawImage(super.background, 0, 0, gp.D_W, gp.D_H, null);
-        if(commandNum == 0){
+        if(getOption() == 0){
 
             g2.drawImage(this.seta, x , y+40, 100, 100, null);
         }
@@ -43,7 +43,7 @@ public class TitleScreenUI extends UI {
         //x = getXforCenteredText(text);
         y += gp.D_W/10;
 
-        if(commandNum == 1){
+        if(getOption() == 1){
             g2.drawImage(this.seta, x + 90, y+30, 100, 100, null);
 
         }

@@ -10,18 +10,23 @@ import java.io.IOException;
 public abstract class UI {
     GamePanel gp;
     Graphics2D g2;
-    BufferedImage  background;
+    BufferedImage  background, pauseIcon;
     public boolean selected = false;
     private int carIndex = 0;
     private int numberOfCars = 3;
     private int option = 0;
     public int commandNum = 0;
 
+
     public UI(GamePanel gp, String backgroundImageURL){
         this.gp = gp;
         try{
             background = ImageIO.read(getClass().getResourceAsStream(backgroundImageURL));
             //garageBackground = ImageIO.read(getClass().getResourceAsStream("/ui/garage.png"));
+
+            pauseIcon = ImageIO.read(getClass().getResourceAsStream("/ui/pause.png"));
+
+
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -54,4 +59,5 @@ public abstract class UI {
     }
 
     public abstract void draw(Graphics2D g2);
+
 }

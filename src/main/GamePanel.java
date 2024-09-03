@@ -86,6 +86,7 @@ public class GamePanel extends JPanel implements Runnable {
             if(check_class(ui) != pauseState){
                 ui = new PauseUI(this);
             }
+            //ui.DrawPauseScreen();
         }
         if(gameState == garageState){
             if(check_class(ui) != garageState){
