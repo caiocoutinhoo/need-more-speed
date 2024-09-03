@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import UI.TitleScreenUI;
 import UI.GarageUI;
-import UI.PauseUI;
 
 
 public class GamePanel extends JPanel implements Runnable {

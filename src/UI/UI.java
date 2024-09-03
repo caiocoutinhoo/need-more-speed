@@ -61,6 +61,7 @@ public abstract class UI {
     public abstract void draw(Graphics2D g2);
 
     public void drawPause(){
+        g2.setFont(arial_40);
         Color cinza = new Color(49, 49, 49, 128);
         g2.setColor(cinza);
         g2.fillRect(0,0, gp.D_W, gp.D_H);
