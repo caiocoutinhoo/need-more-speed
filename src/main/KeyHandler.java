@@ -20,24 +20,26 @@ public class KeyHandler implements KeyListener {
 
         if(gp.gameState == gp.titleState){
             if (code == KeyEvent.VK_W){
+                gp.ui.setOption(0);
                 gp.ui.commandNum--;
                 if(gp.ui.commandNum < 0){
                     gp.ui.commandNum = 1;
                 }
             }
             if (code == KeyEvent.VK_S){
+                gp.ui.setOption(1);
                 gp.ui.commandNum++;
                 if(gp.ui.commandNum > 1){
                     gp.ui.commandNum = 0;
                 }
             }
             if(code == KeyEvent.VK_ENTER){
-                if(gp.ui.commandNum == 0){
+                if(gp.ui.getOption() == 0){
                     // Mudar o valor pra que não va direto para playState
                     code = KeyEvent.VK_A;
                     gp.gameState = gp.garageState;
                 }
-                if(gp.ui.commandNum == 1){
+                if(gp.ui.getOption() == 1){
                     System.exit(0);
                 }
             }

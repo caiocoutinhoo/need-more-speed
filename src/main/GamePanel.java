@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import UI.TitleScreenUI;
 import UI.GarageUI;
+import UI.PauseUI;
 
 
 public class GamePanel extends JPanel implements Runnable {
@@ -83,7 +84,7 @@ public class GamePanel extends JPanel implements Runnable {
             player.update();
         }if(gameState == pauseState){
             if(check_class(ui) != pauseState){
-                ui = new GarageUI(this);
+                ui = new PauseUI(this);
             }
         }
         if(gameState == garageState){

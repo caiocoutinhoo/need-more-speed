@@ -14,7 +14,7 @@ public abstract class UI {
     public boolean selected = false;
     private int carIndex = 0;
     private int numberOfCars = 3;
-
+    private int option = 0;
     public int commandNum = 0;
 
     public UI(GamePanel gp, String backgroundImageURL){
@@ -29,31 +29,6 @@ public abstract class UI {
 
     Font arial_40 = new Font ("Monospaced", Font.PLAIN, 80);
 
-//    public void draw(Graphics2D g2){
-//        this.g2 = g2;
-//        g2.setFont(arial_40);
-//        g2.setColor(Color.white);
-//        //PAUSA
-//        if(gp.gameState == gp.playState){
-//            //fazer depois
-//        }if(gp.gameState == gp.pauseState){
-//            DrawPauseScreen();
-//        }
-//    }
-
-//    public void DrawPauseScreen(){
-//
-//        Color cinza = new Color(49, 49, 49, 128);
-//        g2.setColor(cinza);
-//        g2.fillRect(0,0, gp.D_W, gp.D_H);
-//        g2.setColor(Color.white);
-//        String text = "PAUSED";
-//        int x = getXforCenteredText(text) ;
-//        int y = gp.D_H/2;
-//
-//        g2.drawString(text, x,y);
-//
-//    }
 
 
     public int getCarIndex() {
@@ -65,6 +40,14 @@ public abstract class UI {
             this.carIndex = carIndex;
         }
 
+    }
+
+    public void setOption(int option){
+        this.option = option;
+    }
+
+    public int getOption(){
+        return option;
     }
     public int getNumberOfCars() {
         return numberOfCars;
