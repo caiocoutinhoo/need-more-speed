@@ -14,7 +14,7 @@ public class MapDefault {
     int tamanhoDaPista;
     int roadW = 4000;
     int segL = 600; // segmen lenght
-    double camD = 0.7; // camera deph
+    double camD = 0.6; // camera deph
     public int playerPosition = 0;
     public int playerX = 0;
     public BufferedImage miniMap, point, backgroundUsado;

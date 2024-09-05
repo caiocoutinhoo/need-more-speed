@@ -48,40 +48,7 @@ public class Enemie extends Entity {
 
     public void update(){
         acelerar();
-
-        heigh = (int) ((30*5) + ( map.playerPosition - enemiePosition)/300);
-        if (heigh<0)
-            heigh = 0;
-        double h = 48* ((double) heigh /30);
-        width = (int) (h);
-
-        if (heigh>30*5.5){
-            width = (int) (48*5.5);
-            heigh= (int) (30*5.5);
-
-        }
-
-        y = (int) ((yOriginal) + ( map.playerPosition - enemiePosition)/400);
-        if (y < 460) //452
-            y=460;
-
-        if (!direita){
-            x = (int) ((xOriginal) - ( map.playerPosition - enemiePosition)/100);
-            if (x > 638)
-                x = 638;
-        }
-        if (direita){
-            x = (int) ((xOriginal) + ( map.playerPosition - enemiePosition)/100);
-            if (x < 642)
-                x = 642;
-        }
-
-        if (heigh<0)
-            heigh = heigh*-1;
-
-        x = x - (map.playerX)/9;
-
-        colisao();
+        //colisao();
     }
 
     public void colisao() {
