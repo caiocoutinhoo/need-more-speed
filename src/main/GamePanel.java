@@ -1,8 +1,12 @@
 package main;
 import entity.Player;
 import map.Map1;
+import map.MapDefault;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.font.TextLayout;
+import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 
@@ -22,6 +26,7 @@ public class GamePanel extends JPanel implements Runnable {
     // Player
     Player player = new Player(this,keyH);
     Map1 map1 = new Map1(this, keyH, player);
+    MapDefault mapa = map1;
     //GAME STATE
     public int gameState;
     public final int titleState = 0;
@@ -33,7 +38,15 @@ public class GamePanel extends JPanel implements Runnable {
     private boolean isPaused = false;   // Controle de pausa
     private long currentTime;
 
-    private Font customFont;
+    private Font customFont;            //fonte customizada
+
+    //controles do tempo de votla
+    private float tempoDeVolta = 0;
+    private boolean exibirTempoVolta = false;
+    private float tempoInicioDaVolta = 0;
+    private long tempoInicioExibicaoVolta = 0;
+    private boolean tempo = false;
+    private int contadorAnterior = 0;
 
 
     public GamePanel(){
@@ -46,7 +59,7 @@ public class GamePanel extends JPanel implements Runnable {
             customFont = Font.createFont(Font.TRUETYPE_FONT, new File("res/font/jgs_Font.ttf")).deriveFont(36f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(customFont);
-        }
+        }       //
         catch (IOException | FontFormatException e){
             e.printStackTrace();
             customFont = new Font("Serif", Font.PLAIN, 24);
@@ -119,27 +132,122 @@ public class GamePanel extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        if (gameState == titleState){
+        if (gameState == titleState) {
             ui.draw(g2);
-        }
-        else{
+        } else {
             map1.draw(g2);
-            //UI
+            // UI
             ui.draw(g2);
 
-            g.setFont(customFont);
-
-            //conta o tempo em segundos
+            // Conta o tempo total em segundos
             float elapsedTimeInSeconds = totalElapsedTime / 1_000_000_000.0f;
 
-            //marcação do tempo
-            g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
+
+            // melhorar resolução
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setFont(customFont.deriveFont(36f));
+
+            String tempoTexto = "TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s";
+
+            TextLayout tempoLayout = new TextLayout(tempoTexto, customFont.deriveFont(36f), g2.getFontRenderContext());
+            Shape tempoOutline = tempoLayout.getOutline(null);
+
+            AffineTransform tempoTransform = g2.getTransform();
+            tempoTransform.translate(15, 42);  // Posição (15, 42)
+            g2.transform(tempoTransform);
+
+            //contorno
+            g2.setColor(Color.BLACK);
+            g2.setStroke(new BasicStroke(2f));
+            g2.draw(tempoOutline);
+
+            g2.setTransform(new AffineTransform());
+
+            g2.setColor(Color.WHITE);
+            g2.drawString(tempoTexto, 15, 42);
 
             int score = 0;
-            //marcação dos pontos
-            g.drawString("PONTOS: " + score, 15, 80);
+            String pontosTexto = "PONTOS: " + score;
 
+            TextLayout pontosLayout = new TextLayout(pontosTexto, customFont.deriveFont(36f), g2.getFontRenderContext());
+            Shape pontosOutline = pontosLayout.getOutline(null);
+
+            AffineTransform pontosTransform = g2.getTransform();
+            pontosTransform.translate(15, 80);
+            g2.transform(pontosTransform);
+
+            //contorno
+            g2.setColor(Color.BLACK);
+            g2.setStroke(new BasicStroke(2f));
+            g2.draw(pontosOutline);
+
+            g2.setTransform(new AffineTransform());
+
+            g2.setColor(Color.WHITE);
+            g2.drawString(pontosTexto, 15, 80);
+
+
+            int contadorVolta = mapa.voltaPercorrida;
+            String voltasTexto = "VOLTAS: " + contadorVolta;
+
+            TextLayout voltasLayout = new TextLayout(voltasTexto, customFont.deriveFont(36f), g2.getFontRenderContext());
+            Shape voltasOutline = voltasLayout.getOutline(null);
+
+            AffineTransform voltasTransform = g2.getTransform();
+            voltasTransform.translate(280, 42);
+            g2.transform(voltasTransform);
+
+            //contorno
+            g2.setColor(Color.BLACK);
+            g2.setStroke(new BasicStroke(2f));
+            g2.draw(voltasOutline);
+
+            g2.setTransform(new AffineTransform());
+
+            g2.setColor(Color.WHITE);
+            g2.drawString(voltasTexto, 280, 42);
+
+
+            // uma volta é completa
+            if (contadorVolta > contadorAnterior) {
+                // calculo do tempo de volta
+                tempoDeVolta = elapsedTimeInSeconds - tempoInicioDaVolta;
+
+                exibirTempoVolta = true;
+                tempoInicioExibicaoVolta = System.currentTimeMillis(); // tempo de início da exibição
+                contadorAnterior = contadorVolta; //contador de voltas atualizado
+                tempoInicioDaVolta = elapsedTimeInSeconds; // o tempo de início da nova volta atualizado
+            }
+
+
+            // mostra tempo da volta por 10 segundos
+            if (exibirTempoVolta) {
+                long tempoAtual = System.currentTimeMillis();
+                if (tempoAtual - tempoInicioExibicaoVolta < 10000) {
+                    String texto = "TEMPO DE VOLTA: " + String.format("%.2f", tempoDeVolta).replace(",", ".") + "s";
+                    g2.setFont(customFont.deriveFont(60f));
+
+                    g2.setColor(Color.BLACK);
+                    TextLayout textLayout = new TextLayout(texto, customFont.deriveFont(60f), g2.getFontRenderContext());
+
+                    AffineTransform transform = g2.getTransform();
+                    Shape outline = textLayout.getOutline(null);
+                    transform.translate(340, 260);
+                    g2.transform(transform);
+
+                    g2.setStroke(new BasicStroke(3f)); //espessura do contorno
+                    g2.draw(outline);
+
+                    g2.setTransform(new AffineTransform());
+                    g2.setColor(Color.WHITE);
+                    g2.drawString(texto, 340, 260);
+                }
+                else {
+                    exibirTempoVolta = false;
+                }
+            }
         }
+
         g2.dispose();
     }
 }

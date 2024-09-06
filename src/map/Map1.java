@@ -18,7 +18,6 @@ public class Map1 extends MapDefault{
     List<Line> lines = new ArrayList<Line>();
     int N;
     int pointX,pointY, backX = -60, backY = -34;
-    int voltaPercorrida=0;
     public Enemie[] enemies = new Enemie[5];
     public BufferedImage nuvem;
     public Map1(GamePanel gp, KeyHandler keyH, Player player){
@@ -213,7 +212,7 @@ public class Map1 extends MapDefault{
         }
     }
     public void curvasPlayer(){
-        int tes = voltaPercorrida * tamanhoDaPista;
+        int tes = this.voltaPercorrida * tamanhoDaPista;
 
         if (playerPosition/600 > tes+(300 ) && playerPosition/600 < tes+(350 )){
             playerX -= (int) curvaInercia(player.velocidade, 15);
@@ -278,7 +277,7 @@ public class Map1 extends MapDefault{
         }
 
         if (playerPosition/600 >= tes+(3000) && playerPosition/600 <= tes+(3010)){
-            voltaPercorrida++;
+            this.voltaPercorrida++;
 
             System.out.println("--------------------------------------------------------");
         }
@@ -288,7 +287,7 @@ public class Map1 extends MapDefault{
         return ((curva * 6) * velocidade) /350;
     }
     public void pointInMap(Graphics2D g2){
-        int totalPercorrido = voltaPercorrida * tamanhoDaPista;
+        int totalPercorrido = this.voltaPercorrida * tamanhoDaPista;
 
         g2.drawImage(point,pointX, pointY, 12,12, null);
 
