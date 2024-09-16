@@ -2,6 +2,7 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import UI.*;
 
 public class KeyHandler implements KeyListener {
     GamePanel gp;
@@ -23,30 +24,46 @@ public class KeyHandler implements KeyListener {
 
         if(gp.gameState == gp.titleState){
             if (code == KeyEvent.VK_W){
-                gp.ui.commandNum--;
-                if(gp.ui.commandNum < 0){
-                    gp.ui.commandNum = 1;
-                }
+                gp.ui.setOption(0);
             }
             if (code == KeyEvent.VK_S){
-                gp.ui.commandNum++;
-                if(gp.ui.commandNum > 1){
-                    gp.ui.commandNum = 0;
-                }
+                gp.ui.setOption(1);
             }
             if(code == KeyEvent.VK_ENTER){
-                if(gp.ui.commandNum == 0){
-                    gp.gameState = gp.playState;
+                if(gp.ui.getOption() == 0){
+                    // Mudar o valor pra que não va direto para playState
+                    code = KeyEvent.VK_A;
+                    gp.gameState = gp.garageState;
                 }
-                if(gp.ui.commandNum == 1){
+                if(gp.ui.getOption() == 1){
                     System.exit(0);
                 }
             }
         }
 
+        if(gp.gameState == gp.garageState){
+
+            if (code == KeyEvent.VK_D){
+                gp.ui.setCarIndex(gp.ui.getCarIndex() + 1);
+
+            }
+            if (code == KeyEvent.VK_A){
+                gp.ui.setCarIndex(gp.ui.getCarIndex() - 1);
+
+            }
+            if(code == KeyEvent.VK_ENTER){
+                gp.ui.selected = true;
+                if(gp.ui.selected){
+                    gp.gameState = gp.playState;
+
+                }
+
+            }
+        }
+
         if (code == KeyEvent.VK_W) {
             upPressed = true;
-            }
+        }
         if (code == KeyEvent.VK_S) {
             downPressed = true;
         }
@@ -57,6 +74,7 @@ public class KeyHandler implements KeyListener {
             rightPressed = true;
         }
         if (code == KeyEvent.VK_P){
+            //code = KeyEvent.VK_A;
             if(gp.gameState == gp.playState){
                 gp.gameState = gp.pauseState;
             }else if(gp.gameState == gp.pauseState){
@@ -86,5 +104,5 @@ public class KeyHandler implements KeyListener {
 
     }
 
-    }
+}
 
