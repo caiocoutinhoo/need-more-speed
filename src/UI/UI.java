@@ -18,6 +18,7 @@ public abstract class UI {
     public int commandNum = 0;
 
 
+
     public UI(GamePanel gp, String backgroundImageURL){
         this.gp = gp;
         try{
@@ -83,4 +84,5 @@ public abstract class UI {
         int x = gp.D_W/2 - length/2;
         return x;
     }
+
 }

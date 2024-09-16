@@ -64,6 +64,7 @@ public class GamePanel extends JPanel implements Runnable {
                 delta--;
             }
         }
+
     }
 
     public int check_class(UI userInterface){
@@ -77,6 +78,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update(){
+        alterarImgCar();
         if(gameState == playState){
             //player.setCarID(ui.getCarIndex());
             map1.update();
@@ -116,6 +118,33 @@ public class GamePanel extends JPanel implements Runnable {
         }
         g2.dispose();
     }
+//    public void alterarImgCar(){
+//        if (ui.getCarIndex() == 0){
+//            player.setCarImage("/car1/car1.png");
+//        }else if(ui.getCarIndex() == 1){
+//            player.setCarImage("/car1/car2.png");
+//        } else if (ui.getCarIndex() == 2) {
+//            player.setCarImage("/car1/car3.png");
+//
+//        }
+//    }w
+
+
+    public void alterarImgCar(){
+      switch (ui.getCarIndex()){
+          case 0:
+              player.setCarImage("/car1/car1.png");
+              break;
+          case 1:
+              player.setCarImage("/car1/car2.png");
+              break;
+          case 2:
+              player.setCarImage("/car1/car3.png");
+              break;
+      }
+    }
+
+
 }
 
 

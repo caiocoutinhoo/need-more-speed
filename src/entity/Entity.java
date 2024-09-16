@@ -1,6 +1,8 @@
 package entity;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Entity {
     public int x, y;
@@ -11,5 +13,14 @@ public class Entity {
     public int freio;
     public BufferedImage carro;
     public int imageX1,imageY1, imageX2,imageY2;
+
+    public void setCarImage(String index){
+        try {
+            //int index = getcarID();
+            carro = ImageIO.read(getClass().getResourceAsStream(index));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

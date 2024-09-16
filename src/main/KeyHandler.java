@@ -41,9 +41,11 @@ public class KeyHandler implements KeyListener {
 
             if (code == KeyEvent.VK_D){
                 gp.ui.setCarIndex(gp.ui.getCarIndex() + 1);
+
             }
             if (code == KeyEvent.VK_A){
                 gp.ui.setCarIndex(gp.ui.getCarIndex() - 1);
+
             }
             if(code == KeyEvent.VK_ENTER){
                 gp.ui.selected = true;

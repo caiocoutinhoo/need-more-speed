@@ -10,6 +10,7 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Need More Speed");
         GamePanel gamePanel = new GamePanel();
+
         window.add(gamePanel);
         window.pack();
 
@@ -17,6 +18,8 @@ public class Main {
         window.setVisible(true);
 
         gamePanel.starGameThread();
+
+
 
     }
 }
