@@ -113,8 +113,12 @@ public class GamePanel extends JPanel implements Runnable {
             map1.update();
             player.update();
         }if(gameState == pauseState){
+            if(!isPaused){
+                pauseTime = System.nanoTime();
+                isPaused = true;
+            }
             ui.drawPause();
-            //ui.DrawPauseScreen();
+
         }
         if(gameState == garageState){
             if(check_class(ui) != garageState){
