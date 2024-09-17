@@ -1,6 +1,5 @@
 package map;
 
-import entity.enemie.Enemie;
 import entity.enemie.EnemiesService;
 import entity.player.Player;
 import main.GamePanel;
@@ -81,7 +80,7 @@ public class Map1 extends MapDefault {
                 desenharQuadrado(g, midel, (int) p.X, (int) p.Y, (int) (p.W * 0.03), (int) l.X, (int) l.Y, (int) (l.W * 0.03));
 
                // for
-                enemiesService.testeNPC(playerPosition, segL, lines, g);
+                enemiesService.createEnemies(playerPosition, segL, lines, g);
             }
         }
     }
@@ -147,8 +146,6 @@ public class Map1 extends MapDefault {
 
         }
         enemiesService.updateEnemies(playerPosition);
-        //enemies[0].update();
-        //enemies[1].update();
 
         curvasPlayer();
         barreirada();
@@ -163,7 +160,6 @@ public class Map1 extends MapDefault {
         desenharObjetos(g2);
 
         g2.drawImage(miniMap, 1050, 50, 130, 130, null);
-        enemiesService.drawEnemies(g2);
         //enemies[0].draw(g2);
         //enemies[1].draw(g2);
 

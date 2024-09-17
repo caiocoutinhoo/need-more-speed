@@ -14,14 +14,15 @@ public class Enemie extends Entity {
     GamePanel gp;
     Player player;
     MapDefault map;
-    int xInMap;
+    double xInMap;
     int heigh;
     int width;
     double enemiePosition = 0;
     int xOriginal;
     int yOriginal;
-    boolean direita = true;
-    public Enemie(GamePanel gp, int x, int y, double aceleracao, Player player, MapDefault map, int lim, double enemiePosition){
+    boolean overtaken = false;
+
+    public Enemie(GamePanel gp, int x, int y, double aceleracao, Player player, MapDefault map, int lim, double enemiePosition, double xInMap){
         this.gp = gp;
         this.x = x;
         this.y = y;
@@ -33,9 +34,7 @@ public class Enemie extends Entity {
         xOriginal = this.x;
         yOriginal = this.y;
         this.enemiePosition = enemiePosition;
-        if (x<640)
-            direita = false;
-
+        this.xInMap = xInMap;
 
     }
     public void getCarImage(){
@@ -51,6 +50,15 @@ public class Enemie extends Entity {
         //colisao();
     }
 
+    public void checkOvertaken(MapDefault map){
+        if (map.playerPosition > enemiePosition && !overtaken){
+            map.playerPoints++;
+            System.out.println("Player ganhou 1 ponto! Total de pontos: " + map.playerPoints);
+            this.overtaken = true;
+        }
+    }
+
+
     public void colisao() {
         System.out.println(player.velocidade);
     }
@@ -65,4 +73,4 @@ public class Enemie extends Entity {
         if (velocidade > limVelocidade)
             velocidade = limVelocidade;
     }
-    }
+}

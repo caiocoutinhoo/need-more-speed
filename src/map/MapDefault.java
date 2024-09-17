@@ -19,6 +19,7 @@ public class MapDefault {
     public int playerX = 0;
     public BufferedImage miniMap, point, backgroundUsado;
     public BufferedImage[] background;
+    public int playerPoints = 0;
 
     public void desenharQuadrado(Graphics g, Color c, int x1, int y1, int w1, int x2, int y2, int w2) {
         int[] xPoints = {x1 - w1, x2 - w2, x2 + w2, x1 + w1};

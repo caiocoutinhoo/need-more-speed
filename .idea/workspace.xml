@@ -37,12 +37,12 @@
     &quot;assignee&quot;: &quot;caiocoutinhoo&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/caiocoutinhoo/need-more-speed.git&quot;,
-    &quot;accountId&quot;: &quot;d79d7eab-689f-40f5-99c7-0a1d7a006c55&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/caiocoutinhoo/need-more-speed.git",
+    "accountId": "8cc08d95-d774-433e-8b4d-2a85d8df1b77"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -100,8 +100,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
       </set>
     </attachedChunks>
   </component>
@@ -139,6 +139,7 @@
       <workItem from="1725539105600" duration="4000" />
       <workItem from="1725540162667" duration="16000" />
       <workItem from="1725544903417" duration="366000" />
+      <workItem from="1726578623689" duration="1967000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
