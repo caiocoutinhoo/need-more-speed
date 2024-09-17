@@ -36,6 +36,7 @@ public class GamePanel extends JPanel implements Runnable {
     private boolean isPaused = false;   // Controle de pausa
     private long currentTime;
     private Font customFont;
+    GenericUI gi;
 
 
     public GamePanel(){
@@ -43,6 +44,7 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+        this.gi = new GenericUI(this);
 
         try{    // carregando fonte personalizada
             customFont = Font.createFont(Font.TRUETYPE_FONT, new File("res/font/jgs_Font.ttf")).deriveFont(36f);
@@ -136,7 +138,7 @@ public class GamePanel extends JPanel implements Runnable {
         else if(gameState == playState){
             map1.draw(g2);
             //UI
-            //ui.draw(g2);
+            gi.draw(g2);
 
             g.setFont(customFont);
 
@@ -159,10 +161,10 @@ public class GamePanel extends JPanel implements Runnable {
         else{
             map1.draw(g2);
             //UI
-            //ui.draw(g2);
+            gi.draw(g2);
 
             g.setFont(customFont);
-
+            //g.setColor(Color.white);
             //conta o tempo em segundos
             float elapsedTimeInSeconds = totalElapsedTime / 1_000_000_000.0f;
 

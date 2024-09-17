@@ -32,7 +32,7 @@ public class KeyHandler implements KeyListener {
             if(code == KeyEvent.VK_ENTER){
                 if(gp.ui.getOption() == 0){
                     // Mudar o valor pra que não va direto para playState
-                    code = KeyEvent.VK_A;
+                    code = KeyEvent.VK_Z;
                     gp.gameState = gp.garageState;
                 }
                 if(gp.ui.getOption() == 1){
