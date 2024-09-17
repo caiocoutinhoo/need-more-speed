@@ -10,6 +10,9 @@ import UI.GarageUI;
 
 public class GamePanel extends JPanel implements Runnable {
 
+
+
+
     // CONFIGURAÇÕES DE TELA
     public final int D_W = 1280;
     public final int D_H = 720;
@@ -76,6 +79,19 @@ public class GamePanel extends JPanel implements Runnable {
         }
         return -1;
     }
+
+    public void tocarMusica(){
+
+
+        MP3Player mp3Player = new MP3Player();
+
+        // Caminho para o arquivo MP3
+        String filePath = "res/sound/song.mp3";
+
+        // Inicia a música em segundo plano
+        mp3Player.playMP3InBackground(filePath);
+    }
+
 
     public void update(){
         alterarImgCar();
