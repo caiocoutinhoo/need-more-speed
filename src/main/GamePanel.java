@@ -101,28 +101,28 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
 
-    public void tocarMusica(String filePath){
+//    public void tocarMusica(String filePath){
+//
+//
+//        MP3Player mp3Player = new MP3Player();
+//
+//        // Caminho para o arquivo MP3
+//        //String filePath = "res/sound/song.mp3";
+//
+//        // Inicia a música em segundo plano
+//        mp3Player.playMP3InBackground(filePath);
+//    }
 
-
-        MP3Player mp3Player = new MP3Player();
-
-        // Caminho para o arquivo MP3
-        //String filePath = "res/sound/song.mp3";
-
-        // Inicia a música em segundo plano
-        mp3Player.playMP3InBackground(filePath);
-    }
-
-    public void tocarEfeitoSonoro(String filePath){
-        MP3Player mp3Player = new MP3Player();
-
-        // Caminho para o arquivo MP3
-        //String filePath = "res/sound/song.mp3";
-
-        // Inicia a música em segundo plano
-        mp3Player.playSelect(filePath);
-
-    }
+//    public void tocarEfeitoSonoro(String filePath){
+//        MP3Player mp3Player = new MP3Player();
+//
+//        // Caminho para o arquivo MP3
+//        //String filePath = "res/sound/song.mp3";
+//
+//        // Inicia a música em segundo plano
+//        mp3Player.playSelect(filePath);
+//
+//    }
 
 
     public void update(){

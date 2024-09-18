@@ -33,7 +33,7 @@ public class KeyHandler implements KeyListener {
                 if(gp.ui.getOption() == 0){
                     // Mudar o valor pra que não va direto para playState
 //
-                    gp.tocarEfeitoSonoro("res/sound/selectSong.mp3");
+                 //   gp.tocarEfeitoSonoro("res/sound/selectSong.mp3");
                     code = KeyEvent.VK_Z;
                     gp.gameState = gp.garageState;
                 }
@@ -47,18 +47,18 @@ public class KeyHandler implements KeyListener {
 
             if (code == KeyEvent.VK_D){
                 gp.ui.setCarIndex(gp.ui.getCarIndex() + 1);
-                gp.tocarEfeitoSonoro("res/sound/optionSong.mp3");
+                //gp.tocarEfeitoSonoro("res/sound/optionSong.mp3");
 
 
             }
             if (code == KeyEvent.VK_A){
                 gp.ui.setCarIndex(gp.ui.getCarIndex() - 1);
-                gp.tocarEfeitoSonoro("res/sound/optionSong.mp3");
+              //  gp.tocarEfeitoSonoro("res/sound/optionSong.mp3");
 
             }
             if(code == KeyEvent.VK_ENTER){
 
-                gp.tocarEfeitoSonoro("res/sound/selectSong.mp3");
+                //gp.tocarEfeitoSonoro("res/sound/selectSong.mp3");
                 code = KeyEvent.VK_Z;
                 gp.ui.selected = true;
                 if(gp.ui.selected){
@@ -85,9 +85,9 @@ public class KeyHandler implements KeyListener {
             //code = KeyEvent.VK_A;
             if(gp.gameState == gp.playState){
                 gp.gameState = gp.pauseState;
-                gp.tocarEfeitoSonoro("res/sound/pause.mp3");
+              //  gp.tocarEfeitoSonoro("res/sound/pause.mp3");
             }else if(gp.gameState == gp.pauseState){
-                gp.tocarEfeitoSonoro("res/sound/pause.mp3");
+               // gp.tocarEfeitoSonoro("res/sound/pause.mp3");
                 gp.gameState = gp.playState;
             }
 
