@@ -11,6 +11,8 @@ import UI.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
+
+
     // CONFIGURAÇÕES DE TELA
     public final int D_W = 1280;
     public final int D_H = 720;
@@ -97,7 +99,34 @@ public class GamePanel extends JPanel implements Runnable {
         }
         return -1;
     }
+
+
+    public void tocarMusica(String filePath){
+
+
+        MP3Player mp3Player = new MP3Player();
+
+        // Caminho para o arquivo MP3
+        //String filePath = "res/sound/song.mp3";
+
+        // Inicia a música em segundo plano
+        mp3Player.playMP3InBackground(filePath);
+    }
+
+    public void tocarEfeitoSonoro(String filePath){
+        MP3Player mp3Player = new MP3Player();
+
+        // Caminho para o arquivo MP3
+        //String filePath = "res/sound/song.mp3";
+
+        // Inicia a música em segundo plano
+        mp3Player.playSelect(filePath);
+
+    }
+
+
     public void update(){
+        alterarImgCar();
         if(gameState == playState){
             if(isPaused){
                 isPaused = false; //reseta pausa
@@ -181,6 +210,20 @@ public class GamePanel extends JPanel implements Runnable {
 
         }
         g2.dispose();
+    }
+
+    public void alterarImgCar(){
+        switch (ui.getCarIndex()){
+            case 0:
+                player.setCarImage("/car1/car1.png");
+                break;
+            case 1:
+                player.setCarImage("/car1/car2.png");
+                break;
+            case 2:
+                player.setCarImage("/car1/car3.png");
+                break;
+        }
     }
 }
 

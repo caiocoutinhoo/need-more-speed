@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="Backgrond">
+    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="mescla da UI_branch com time_points">
+      <change afterPath="$PROJECT_DIR$/res/car1/car2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/car1/car3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/libs/jlayer-1.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/backgroundSong.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/optionSong.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/pause.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/selectSong.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/MP3Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/need-more-speed.iml" beforeDir="false" afterPath="$PROJECT_DIR$/need-more-speed.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,21 +77,26 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "UI__MERGE",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/guilherme/IdeaProjects/need-more-speed2",
+    "last_opened_file_path": "/home/vinicius/idea-IU-233.14475.28/need-more-speed/res/sound",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "terminal",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/sound" />
+      <recent name="$PROJECT_DIR$/res/car1" />
+      <recent name="$PROJECT_DIR$/res/libs" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/res/ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\caiom\OneDrive\Área de Trabalho\Caio\need more speed\res\map1\back" />
@@ -109,8 +126,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="jdk-11.0.22-temurin-11.0.22-4caba194b151-3f037115" />
       </set>
     </attachedChunks>
   </component>
@@ -145,6 +161,7 @@
       <workItem from="1725297852170" duration="1060000" />
       <workItem from="1725625008398" duration="2626000" />
       <workItem from="1725635306501" duration="7385000" />
+      <workItem from="1726617521655" duration="4303000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -226,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716574813775</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="mescla da UI_branch com time_points">
+      <option name="closed" value="true" />
+      <created>1726616016843</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1726616016843</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +276,8 @@
     <MESSAGE value="Cenario básico e Player Parte 2" />
     <MESSAGE value="Cenario básico e Player Parte 3" />
     <MESSAGE value="Backgrond" />
-    <option name="LAST_COMMIT_MESSAGE" value="Backgrond" />
+    <MESSAGE value="mescla da UI_branch com time_points" />
+    <option name="LAST_COMMIT_MESSAGE" value="mescla da UI_branch com time_points" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
