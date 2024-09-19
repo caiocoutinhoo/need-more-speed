@@ -1,7 +1,7 @@
 package map;
 
-import entity.Enemie;
-import entity.Player;
+import entity.enemie.EnemiesService;
+import entity.player.Player;
 import main.GamePanel;
 import main.KeyHandler;
 
@@ -18,14 +18,14 @@ public class Map1 extends MapDefault{
     List<Line> lines = new ArrayList<Line>();
     int N;
     int pointX,pointY, backX = -60, backY = -34;
-    public Enemie[] enemies = new Enemie[5];
-    public BufferedImage nuvem;
+    EnemiesService enemiesService;
+
     public Map1(GamePanel gp, KeyHandler keyH, Player player){
         this.gp=gp;
         this.keyH=keyH;
         this.player = player;
+        enemiesService = new EnemiesService(gp, player, this);
         getMap1Image();
-        enemieCreate();
 
         tamanhoDaPista = 3000;
         int voltas = 3;
@@ -41,12 +41,8 @@ public class Map1 extends MapDefault{
 
 
     }
-    void desenharObjetos(Graphics2D g){
 
-        // Desenhar céu
-        //g.setColor(new Color(0x4141EE));
-        //g.fillRect(0,0, 1280, 700);
-
+    void drawStreet(Graphics2D g){
         // Desenhar ruas
 
         int starPosition= playerPosition/segL;
@@ -81,9 +77,12 @@ public class Map1 extends MapDefault{
                 desenharQuadrado(g, rumble, (int) p.X, (int) p.Y, (int) (p.W * 1.4), (int) l.X, (int) l.Y, (int) (l.W * 1.4));
                 desenharQuadrado(g, road, (int) p.X, (int) p.Y, (int) (p.W * 1.2), (int) l.X, (int) l.Y, (int) (l.W* 1.2));
                 desenharQuadrado(g, midel, (int) p.X, (int) p.Y, (int) (p.W * 0.03), (int) l.X, (int) l.Y, (int) (l.W* 0.03));
+
+                enemiesService.createEnemies(playerPosition, segL, lines, g);
             }
         }
     }
+
     public void getMap1Image(){
         background = new BufferedImage[13];
         try {
@@ -103,19 +102,23 @@ public class Map1 extends MapDefault{
             background[10] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-10.png"));
             background[11] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-11.png"));
             background[12] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-12.png"));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public void enemieCreate(){
-        enemies[0] = new Enemie(gp,200, 550, 1, player, this, 400, 45000);
-        enemies[1] = new Enemie(gp,1080, 550, 1, player, this, 500, 5000);
 
-
-    }
     public void update(){
 
+        playerKey();
+        curvasPlayer();
+        barreirada();
+
+        contadorFrameBack += 1;
+        if (contadorFrameBack == 12*8)
+            contadorFrameBack = 0;
+    }
+
+    private void playerKey() {
         if (keyH.upPressed){
             playerPosition += (int) player.velocidade;
         }
@@ -142,27 +145,21 @@ public class Map1 extends MapDefault{
 
 
         }
-        enemies[0].update();
-        enemies[1].update();
-
-        curvasPlayer();
-        barreirada();
-
-        contadorFrameBack += 1;
-        if (contadorFrameBack == 12*8)
-            contadorFrameBack = 0;
     }
+
     public void draw(Graphics2D g2){
         background(g2);
-        desenharObjetos(g2);
+        drawStreet(g2);
+
 
         g2.drawImage(miniMap,1050, 50, 130,130, null);
-        enemies[0].draw(g2);
-        enemies[1].draw(g2);
 
         player.draw(g2);
         pointInMap(g2);
+        enemiesService.updateEnemies(playerPosition,g2);
+
     }
+
     public void percurssoDoMapa(int i, int tamanho, Line line, int v){
         v = v * tamanho;
         if (i > 300+v && i < 350+v){
@@ -206,11 +203,13 @@ public class Map1 extends MapDefault{
         }
 
     }
+
     public void barreirada(){
-        if ( (playerX < -4040 || playerX> 4040) && player.velocidade>120 ){
-            player.velocidade -= 12;
+        if ((playerX < -4040 || playerX> 4040) && player.velocidade>200){
+            player.velocidade -= 30;
         }
     }
+
     public void curvasPlayer(){
         int tes = this.voltaPercorrida * tamanhoDaPista;
 

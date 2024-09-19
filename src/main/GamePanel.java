@@ -1,5 +1,5 @@
 package main;
-import entity.Player;
+import entity.player.Player;
 import map.Map1;
 import javax.swing.*;
 import java.awt.*;
@@ -181,9 +181,8 @@ public class GamePanel extends JPanel implements Runnable {
             //marcação do tempo
             g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
 
-            int score = 0;
             //marcação dos pontos
-            g.drawString("PONTOS: " + score, 15, 80);
+            g.drawString("PONTOS: " + map1.playerPoints, 15, 80);
         }else if(gameState == pauseState){
             map1.draw(g2);
             ui.setG2(g2);
@@ -204,9 +203,8 @@ public class GamePanel extends JPanel implements Runnable {
             //marcação do tempo
             g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
 
-            int score = 0;
             //marcação dos pontos
-            g.drawString("PONTOS: " + score, 15, 80);
+            g.drawString("PONTOS: " + map1.playerPoints, 15, 80);
 
         }
         g2.dispose();

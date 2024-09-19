@@ -1,5 +1,6 @@
 package entity;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -14,6 +15,7 @@ public class Entity {
     public int freio;
     public BufferedImage carro;
     public int imageX1,imageY1, imageX2,imageY2;
+    public int width,height;
 
     public void setCarImage(String index){
         try {
@@ -22,5 +24,9 @@ public class Entity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
     }
 }
