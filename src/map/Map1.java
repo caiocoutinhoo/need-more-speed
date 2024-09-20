@@ -13,12 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map1 extends MapDefault {
+    public static final int pointsToWin = 10;
     Player player;
     int contadorFrameBack = 0;
     List<Line> lines = new ArrayList<Line>();
     int N;
     int pointX, pointY, backX = -60, backY = -34;
     EnemiesService enemiesService;
+    int voltas = 1;
 
     public Map1(GamePanel gp, KeyHandler keyH, Player player) {
         this.gp = gp;
@@ -28,7 +30,6 @@ public class Map1 extends MapDefault {
         getMap1Image();
 
         tamanhoDaPista = 3000;
-        int voltas = 3;
         for (int i = 0; i < ((tamanhoDaPista * voltas) + 500); i++) {
             Line line = new Line();
             line.z = i * segL;
@@ -117,6 +118,8 @@ public class Map1 extends MapDefault {
         contadorFrameBack += 1;
         if (contadorFrameBack == 12 * 8)
             contadorFrameBack = 0;
+
+        finishRacing();
     }
 
     private void playerKey() {
@@ -535,7 +538,17 @@ public class Map1 extends MapDefault {
         // 0 = corrida iniciada, porém não terminou
         // 1 = corrida terminou, jogador ganhou
         // 2 = corrida terminou, jogador terminou
+        System.out.println(tamanhoDaPista);
+        if (((tamanhoDaPista * voltas) <= (playerPosition/600)) && (playerPoints >= pointsToWin)){
+            System.out.println("GANHOU");
 
+            return 1;
+        }
+        if (tamanhoDaPista * voltas <= playerPosition/600 && playerPoints < pointsToWin ){
+            System.out.println("PERDEU");
+
+            return 2;
+        }
         return 0;
     }
 }
