@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 import UI.*;
+import map.MapDefault;
 
 
 public class GamePanel extends JPanel implements Runnable {
@@ -25,7 +26,7 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     // Player
     Player player = new Player(this,keyH);
-    Map1 map1 = new Map1(this, keyH, player);
+    MapDefault map1 = new Map1(this, keyH, player);
     //GAME STATE
     public int gameState;
     public final int titleState = 0;
@@ -99,8 +100,6 @@ public class GamePanel extends JPanel implements Runnable {
         }
         return -1;
     }
-
-
 //    public void tocarMusica(String filePath){
 //
 //
@@ -123,7 +122,6 @@ public class GamePanel extends JPanel implements Runnable {
 //        mp3Player.playSelect(filePath);
 //
 //    }
-
 
     public void update(){
         alterarImgCar();
@@ -179,7 +177,7 @@ public class GamePanel extends JPanel implements Runnable {
             float elapsedTimeInSeconds = totalElapsedTime / 1_000_000_000.0f;
 
             //marcação do tempo
-            g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
+//            g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
 
             //marcação dos pontos
             g.drawString("PONTOS: " + map1.playerPoints, 15, 80);
@@ -201,7 +199,7 @@ public class GamePanel extends JPanel implements Runnable {
             float elapsedTimeInSeconds = totalElapsedTime / 1_000_000_000.0f;
 
             //marcação do tempo
-            g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
+//            g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
 
             //marcação dos pontos
             g.drawString("PONTOS: " + map1.playerPoints, 15, 80);

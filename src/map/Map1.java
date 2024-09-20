@@ -12,47 +12,47 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Map1 extends MapDefault{
+public class Map1 extends MapDefault {
     Player player;
     int contadorFrameBack = 0;
     List<Line> lines = new ArrayList<Line>();
     int N;
-    int pointX,pointY, backX = -60, backY = -34;
+    int pointX, pointY, backX = -60, backY = -34;
     EnemiesService enemiesService;
 
-    public Map1(GamePanel gp, KeyHandler keyH, Player player){
-        this.gp=gp;
-        this.keyH=keyH;
+    public Map1(GamePanel gp, KeyHandler keyH, Player player) {
+        this.gp = gp;
+        this.keyH = keyH;
         this.player = player;
         enemiesService = new EnemiesService(gp, player, this);
         getMap1Image();
 
         tamanhoDaPista = 3000;
         int voltas = 3;
-        for (int i = 0; i < ( (tamanhoDaPista*voltas)+500 ); i++) {
+        for (int i = 0; i < ((tamanhoDaPista * voltas) + 500); i++) {
             Line line = new Line();
-            line.z = i*segL;
+            line.z = i * segL;
             for (int j = 0; j < voltas; j++) {
-                percurssoDoMapa(i,tamanhoDaPista, line, j);
+                percurssoDoMapa(i, tamanhoDaPista, line, j);
             }
             lines.add(line);
-            }
+        }
         N = lines.size();
 
 
     }
 
-    void drawStreet(Graphics2D g){
+    void drawStreet(Graphics2D g) {
         // Desenhar ruas
 
-        int starPosition= playerPosition/segL;
+        int starPosition = playerPosition / segL;
         double x = 0, dx = 0;
         double maxY = 900;
         int camH = 1500 + (int) lines.get(starPosition).y;
 
-        for (int n = starPosition; n < starPosition+300; n++) {
+        for (int n = starPosition; n < starPosition + 300; n++) {
 
-            Line l= lines.get(n%N);
+            Line l = lines.get(n % N);
             l.project(playerX - (int) x, camH, playerPosition);
             x += dx;
             dx += l.curve;
@@ -60,34 +60,35 @@ public class Map1 extends MapDefault{
             if (l.Y > 0 && l.Y < maxY) {
                 maxY = l.Y;
 
-                Color grass= ((n/2)%2)==0? new Color(112, 191, 151):new Color(102, 189, 120);
-                Color rumble= ((n/2)%2)==0? new Color(255,255,255):new Color(255,0,0);
-                Color road= ((n/2)%2)==0? new Color(117, 117, 117):new Color(84, 84, 84);
-                Color midel =  ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(0x545454);
+                Color grass = ((n / 2) % 2) == 0 ? new Color(112, 191, 151) : new Color(102, 189, 120);
+                Color rumble = ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(255, 0, 0);
+                Color road = ((n / 2) % 2) == 0 ? new Color(117, 117, 117) : new Color(84, 84, 84);
+                Color midel = ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(0x545454);
 
                 Line p = null;
 
                 if (n == 0) {
                     p = l;
-                }else {
+                } else {
                     p = lines.get((n - 1) % N);
                 }
 
                 desenharQuadrado(g, grass, 0, (int) p.Y, gp.D_W, 0, (int) l.Y, gp.D_W);
                 desenharQuadrado(g, rumble, (int) p.X, (int) p.Y, (int) (p.W * 1.4), (int) l.X, (int) l.Y, (int) (l.W * 1.4));
-                desenharQuadrado(g, road, (int) p.X, (int) p.Y, (int) (p.W * 1.2), (int) l.X, (int) l.Y, (int) (l.W* 1.2));
-                desenharQuadrado(g, midel, (int) p.X, (int) p.Y, (int) (p.W * 0.03), (int) l.X, (int) l.Y, (int) (l.W* 0.03));
+                desenharQuadrado(g, road, (int) p.X, (int) p.Y, (int) (p.W * 1.2), (int) l.X, (int) l.Y, (int) (l.W * 1.2));
+                desenharQuadrado(g, midel, (int) p.X, (int) p.Y, (int) (p.W * 0.03), (int) l.X, (int) l.Y, (int) (l.W * 0.03));
 
                 enemiesService.createEnemies(playerPosition, segL, lines, g);
             }
         }
     }
 
-    public void getMap1Image(){
+    public void getMap1Image() {
         background = new BufferedImage[13];
         try {
             miniMap = ImageIO.read(getClass().getResourceAsStream("/map1/miniMap-01.png"));
             point = ImageIO.read(getClass().getResourceAsStream("/map1/point.png"));
+            cutsceneImage = ImageIO.read(getClass().getResourceAsStream("/map1/back-map1.png"));
             backgroundUsado = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-0.png"));
             background[0] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-0.png"));
             background[1] = ImageIO.read(getClass().getResourceAsStream("/map1/back/pixil-frame-1.png"));
@@ -107,39 +108,39 @@ public class Map1 extends MapDefault{
         }
     }
 
-    public void update(){
+    public void update() {
 
         playerKey();
         curvasPlayer();
         barreirada();
 
         contadorFrameBack += 1;
-        if (contadorFrameBack == 12*8)
+        if (contadorFrameBack == 12 * 8)
             contadorFrameBack = 0;
     }
 
     private void playerKey() {
-        if (keyH.upPressed){
+        if (keyH.upPressed) {
             playerPosition += (int) player.velocidade;
         }
-        if (!keyH.upPressed){
+        if (!keyH.upPressed) {
             playerPosition += (int) player.velocidade;
         }
-        if (keyH.leftPressed ){
+        if (keyH.leftPressed) {
             playerX -= (int) (player.aderencia * player.velocidade);
-            if ((player.aderencia * player.velocidade)>=5){
+            if ((player.aderencia * player.velocidade) >= 5) {
                 player.imageX1 = 177;
                 player.imageX2 = 233;
             }
         }
-        if (keyH.rightPressed ){
+        if (keyH.rightPressed) {
             playerX += (int) (player.aderencia * player.velocidade);
-            if ((player.aderencia * player.velocidade)>=5){
+            if ((player.aderencia * player.velocidade) >= 5) {
                 player.imageX1 = 66;
                 player.imageX2 = 123;
             }
         }
-        if (!keyH.leftPressed&&!keyH.rightPressed){
+        if (!keyH.leftPressed && !keyH.rightPressed) {
             player.imageX1 = 124;
             player.imageX2 = 176;
 
@@ -147,154 +148,157 @@ public class Map1 extends MapDefault{
         }
     }
 
-    public void draw(Graphics2D g2){
-        background(g2);
-        drawStreet(g2);
-
-
-        g2.drawImage(miniMap,1050, 50, 130,130, null);
-
-        player.draw(g2);
-        pointInMap(g2);
-        enemiesService.updateEnemies(playerPosition,g2);
-
+    public void draw(Graphics2D g2) {
+        if (cutscene(g2))
+            mapRunning(g2);
     }
 
-    public void percurssoDoMapa(int i, int tamanho, Line line, int v){
+    private void mapRunning(Graphics2D g2) {
+        background(g2);
+        drawStreet(g2);
+        g2.drawImage(miniMap, 1050, 50, 130, 130, null);
+        player.draw(g2);
+        pointInMap(g2);
+        enemiesService.updateEnemies(playerPosition, g2);
+    }
+
+    public void percurssoDoMapa(int i, int tamanho, Line line, int v) {
         v = v * tamanho;
-        if (i > 300+v && i < 350+v){
+        if (i > 300 + v && i < 350 + v) {
             line.curve = 15;
         }
-        if (i > 350+v && i < 450+v){
+        if (i > 350 + v && i < 450 + v) {
             line.curve = -7;
         }
-        if (i > 520+v && i < 570+v){
+        if (i > 520 + v && i < 570 + v) {
             line.curve = 15;
         }
-        if (i > 700+v && i < 750+v){
+        if (i > 700 + v && i < 750 + v) {
             line.curve = 15;
         }
-        if (i > 850+v && i < 1000+v){
+        if (i > 850 + v && i < 1000 + v) {
             line.curve = 0.7;
         }
-        if (i > 1070+v && i < 1500+v){
+        if (i > 1070 + v && i < 1500 + v) {
             line.curve = -1.5;
         }
-        if (i > 1550+v && i < 1700+v){
+        if (i > 1550 + v && i < 1700 + v) {
             line.curve = 12;
         }
-        if (i > 1900+v && i < 2000+v){
+        if (i > 1900 + v && i < 2000 + v) {
             line.curve = 15;
         }
-        if (i > 2150+v && i < 2170+v){
+        if (i > 2150 + v && i < 2170 + v) {
             line.curve = -20;
         }
-        if (i > 2170+v && i < 2190+v){
+        if (i > 2170 + v && i < 2190 + v) {
             line.curve = 20;
         }
-        if (i > 2195+v && i < 2215+v){
+        if (i > 2195 + v && i < 2215 + v) {
             line.curve = 20;
         }
-        if (i > 2215+v && i < 2235+v){
+        if (i > 2215 + v && i < 2235 + v) {
             line.curve = -20;
         }
-        if (i > 2450+v && i < 3000+v){
+        if (i > 2450 + v && i < 3000 + v) {
             line.curve = 3;
         }
 
     }
 
-    public void barreirada(){
-        if ((playerX < -4040 || playerX> 4040) && player.velocidade>200){
+    public void barreirada() {
+        if ((playerX < -4040 || playerX > 4040) && player.velocidade > 200) {
             player.velocidade -= 30;
         }
     }
 
-    public void curvasPlayer(){
+    public void curvasPlayer() {
         int tes = this.voltaPercorrida * tamanhoDaPista;
 
-        if (playerPosition/600 > tes+(300 ) && playerPosition/600 < tes+(350 )){
+        if (playerPosition / 600 > tes + (300) && playerPosition / 600 < tes + (350)) {
             playerX -= (int) curvaInercia(player.velocidade, 15);
         }
-        if (playerPosition/600 > tes+(350 ) && playerPosition/600 < tes+(450 )){
+        if (playerPosition / 600 > tes + (350) && playerPosition / 600 < tes + (450)) {
             playerX += (int) curvaInercia(player.velocidade, 7);
         }
-        if (playerPosition/600 > tes+(520 ) && playerPosition/600 < tes+(570 )){
+        if (playerPosition / 600 > tes + (520) && playerPosition / 600 < tes + (570)) {
             //line.curve = 15;
             playerX -= (int) curvaInercia(player.velocidade, 15);
 
         }
-        if (playerPosition/600 > tes+(700 ) && playerPosition/600 < tes+(750 )){
+        if (playerPosition / 600 > tes + (700) && playerPosition / 600 < tes + (750)) {
             //line.curve = 15;
             playerX -= (int) curvaInercia(player.velocidade, 15);
 
         }
-        if (playerPosition/600 > tes+(850 ) && playerPosition/600 < tes+(1000 )){
+        if (playerPosition / 600 > tes + (850) && playerPosition / 600 < tes + (1000)) {
             //line.curve = 0.7;
             playerX -= (int) curvaInercia(player.velocidade, 1);
 
         }
-        if (playerPosition/600 > tes+(1070 ) && playerPosition/600 < tes+(1500 )){
-           // line.curve = -1.5;
+        if (playerPosition / 600 > tes + (1070) && playerPosition / 600 < tes + (1500)) {
+            // line.curve = -1.5;
             playerX += (int) curvaInercia(player.velocidade, 7);
 
         }
-        if (playerPosition/600 > tes+(1550 ) && playerPosition/600 < tes+(1700 )){
-           // line.curve = 12;
+        if (playerPosition / 600 > tes + (1550) && playerPosition / 600 < tes + (1700)) {
+            // line.curve = 12;
             playerX -= (int) curvaInercia(player.velocidade, 12);
 
         }
-        if (playerPosition/600 > tes+(1900 ) && playerPosition/600 < tes+(2000 ) ){
-           // line.curve = 15;
+        if (playerPosition / 600 > tes + (1900) && playerPosition / 600 < tes + (2000)) {
+            // line.curve = 15;
             playerX -= (int) curvaInercia(player.velocidade, 15);
 
         }
-        if (playerPosition/600 > tes+(2150 ) && playerPosition/600 < tes+(2170 )){
-           // line.curve = -20;
+        if (playerPosition / 600 > tes + (2150) && playerPosition / 600 < tes + (2170)) {
+            // line.curve = -20;
             playerX += (int) curvaInercia(player.velocidade, 20);
 
         }
-        if (playerPosition/600 > tes+(2170 ) && playerPosition/600 < tes+(2190 )){
-           // line.curve = 20;
+        if (playerPosition / 600 > tes + (2170) && playerPosition / 600 < tes + (2190)) {
+            // line.curve = 20;
             playerX -= (int) curvaInercia(player.velocidade, 20);
 
         }
-        if (playerPosition/600 > tes+(2195 ) && playerPosition/600 < tes+(2215 )){
-           // line.curve = 20;
+        if (playerPosition / 600 > tes + (2195) && playerPosition / 600 < tes + (2215)) {
+            // line.curve = 20;
             playerX -= (int) curvaInercia(player.velocidade, 20);
 
         }
-        if (playerPosition/600 > tes+(2215 ) && playerPosition/600 < tes+(2235 )){
-           // line.curve = -20;
+        if (playerPosition / 600 > tes + (2215) && playerPosition / 600 < tes + (2235)) {
+            // line.curve = -20;
             playerX += (int) curvaInercia(player.velocidade, 20);
 
         }
-        if (playerPosition/600 > tes+(2450) && playerPosition/600 < tes+(3000)){
-           // line.curve = 3;
+        if (playerPosition / 600 > tes + (2450) && playerPosition / 600 < tes + (3000)) {
+            // line.curve = 3;
             playerX -= (int) curvaInercia(player.velocidade, 3);
 
         }
 
-        if (playerPosition/600 >= tes+(3000) && playerPosition/600 <= tes+(3010)){
+        if (playerPosition / 600 >= tes + (3000) && playerPosition / 600 <= tes + (3010)) {
             this.voltaPercorrida++;
 
             System.out.println("--------------------------------------------------------");
         }
 
     }
-    public double curvaInercia(double velocidade, int curva){
-        return ((curva * 6) * velocidade) /350;
+
+    public double curvaInercia(double velocidade, int curva) {
+        return ((curva * 6) * velocidade) / 350;
     }
-    public void pointInMap(Graphics2D g2){
+
+    public void pointInMap(Graphics2D g2) {
         int totalPercorrido = this.voltaPercorrida * tamanhoDaPista;
 
-        g2.drawImage(point,pointX, pointY, 12,12, null);
+        g2.drawImage(point, pointX, pointY, 12, 12, null);
 
 
-        switch ( (playerPosition/600) - totalPercorrido ){
+        switch ((playerPosition / 600) - totalPercorrido) {
             case 0:
-                pointX =1069;
-                pointY =130;
+                pointX = 1069;
+                pointY = 130;
                 break;
             case 30:
                 pointY = 125;
@@ -308,20 +312,20 @@ public class Map1 extends MapDefault{
             case 225:
                 pointY = 85;
                 break;
-           case 300:
+            case 300:
                 pointY = 78;
                 pointX = 1072;
                 break;
-                case 350:
-                pointY =72;
+            case 350:
+                pointY = 72;
                 pointX = 1085;
                 break;
-              case 400:
+            case 400:
                 pointX = 1087;
                 break;
-              case 450:
+            case 450:
                 pointY = 59;
-                pointX =1091;
+                pointX = 1091;
                 break;
             case 500:
                 pointY = 53;
@@ -416,8 +420,8 @@ public class Map1 extends MapDefault{
                 pointX = 1133;
                 break;
             case 2100:
-                pointY =  165;
-                pointX  =1130;
+                pointY = 165;
+                pointX = 1130;
                 break;
             case 2150:
                 pointY = 168;
@@ -453,62 +457,86 @@ public class Map1 extends MapDefault{
                 pointX = 1079;
                 break;
             case 2900:
-                pointY =  142;
+                pointY = 142;
                 pointX = 1075;
                 break;
             case 3000:
-                pointY =130;
-                pointX =1069;
+                pointY = 130;
+                pointX = 1069;
                 break;
 
         }
 
     }
-    public void background(Graphics2D g2){
-        switch (contadorFrameBack){
+
+    public void background(Graphics2D g2) {
+        switch (contadorFrameBack) {
             case 0:
                 backgroundUsado = background[0];
                 break;
             case 8:
                 backgroundUsado = background[1];
                 break;
-            case 2*8:
+            case 2 * 8:
                 backgroundUsado = background[2];
                 break;
-            case 3*8:
+            case 3 * 8:
                 backgroundUsado = background[3];
                 break;
-            case 4*8:
+            case 4 * 8:
                 backgroundUsado = background[4];
                 break;
-            case 5*8:
+            case 5 * 8:
                 backgroundUsado = background[5];
                 break;
-            case 6*8:
+            case 6 * 8:
                 backgroundUsado = background[6];
                 break;
-            case 7*8:
+            case 7 * 8:
                 backgroundUsado = background[7];
                 break;
-            case 8*8:
+            case 8 * 8:
                 backgroundUsado = background[8];
                 break;
-            case 9*8:
+            case 9 * 8:
                 backgroundUsado = background[9];
                 break;
-            case 10*8:
+            case 10 * 8:
                 backgroundUsado = background[10];
                 break;
-            case 11*8:
+            case 11 * 8:
                 backgroundUsado = background[11];
                 break;
-            case 12 *8:
+            case 12 * 8:
                 backgroundUsado = background[12];
                 break;
 
         }
-        backX = -60 + playerX/200;
-        g2.drawImage(backgroundUsado, backX,backY,794 * 7/4,285* 7/4, null);
+        backX = -60 + playerX / 200;
+        g2.drawImage(backgroundUsado, backX, backY, 794 * 7 / 4, 285 * 7 / 4, null);
+    }
+
+    public boolean cutscene(Graphics2D g2) {
+        if (cutsceneCounter < 50) {
+            cutsceneCounter++;
+            g2.drawImage(backgroundUsado, 0, 0, 1280, 720, 0, 0, 507, 285, null);
+            return false; // Retorna true após 50 execuções
+        }
+        if (cutsceneCounter > 49 && cutsceneCounter < 200) {
+            cutsceneCounter++;
+            g2.drawImage(backgroundUsado, 0, 0, 1280, 720, 0, 0, 507, 285, null);
+            fadeToBlack(g2);
+            return false;
+        }
+        return true;
+    }
+
+    public int finishRacing() {
+        // 0 = corrida iniciada, porém não terminou
+        // 1 = corrida terminou, jogador ganhou
+        // 2 = corrida terminou, jogador terminou
+
+        return 0;
     }
 }
 
