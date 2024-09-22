@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Map2 extends MapDefault {
+public class Map3 extends MapDefault{
     public static final int pointsToWin = 10;
     Player player;
     int contadorFrameBack = 0;
@@ -22,17 +22,16 @@ public class Map2 extends MapDefault {
     EnemiesService enemiesService;
     int voltas = 1;
 
-    public Map2(GamePanel gp, KeyHandler keyH, Player player) {
+    public Map3(GamePanel gp, KeyHandler keyH, Player player) {
         this.gp = gp;
         this.keyH = keyH;
         this.player = player;
         enemiesService = new EnemiesService(gp, player, this);
-        getMap2Image();
+        getMap3Image();
 
         player.velocidade = 0;
 
-
-        tamanhoDaPista = 2600;
+        tamanhoDaPista = 3650;
         for (int i = 0; i < ((tamanhoDaPista * voltas) + 500); i++) {
             Line line = new Line();
             line.z = i * segL;
@@ -62,10 +61,10 @@ public class Map2 extends MapDefault {
             if (l.Y > 0 && l.Y < maxY) {
                 maxY = l.Y;
 
-                Color grass = ((n / 2) % 2) == 0 ? new Color(237, 230, 156) : new Color(217, 183, 117);
-                Color rumble = ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(0, 111, 255);
-                Color road = ((n / 2) % 2) == 0 ? new Color(100, 84, 64) : new Color(133, 119, 102);
-                Color midel = ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(0x857766);
+                Color grass = ((n / 2) % 2) == 0 ? new Color(31, 54, 63) : new Color(39, 61, 70);
+                Color rumble = ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(255, 117, 0);
+                Color road = ((n / 2) % 2) == 0 ? new Color(21, 21, 21) : new Color(0, 0, 0);
+                Color midel = ((n / 2) % 2) == 0 ? new Color(255, 255, 255) : new Color(0x000000);
 
                 Line p = null;
 
@@ -85,12 +84,16 @@ public class Map2 extends MapDefault {
         }
     }
 
-    public void getMap2Image() {
+    public void getMap3Image() {
+        background = new BufferedImage[2];
         try {
-            miniMap = ImageIO.read(getClass().getResourceAsStream("/map2/map2.png"));
+            miniMap = ImageIO.read(getClass().getResourceAsStream("/map3/map3.png"));
             point = ImageIO.read(getClass().getResourceAsStream("/map1/point.png"));
-            cutsceneImage = ImageIO.read(getClass().getResourceAsStream("/map2/back.png"));
-            backgroundUsado = ImageIO.read(getClass().getResourceAsStream("/map2/back.png"));
+            cutsceneImage = ImageIO.read(getClass().getResourceAsStream("/map3/back1.png"));
+            backgroundUsado = ImageIO.read(getClass().getResourceAsStream("/map3/back1.png"));
+            background[0] = ImageIO.read(getClass().getResourceAsStream("/map3/back1.png"));
+            background[1] = ImageIO.read(getClass().getResourceAsStream("/map3/back2.png"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,11 +105,7 @@ public class Map2 extends MapDefault {
         playerKey();
         curvasPlayer();
         barreirada();
-
-        contadorFrameBack += 1;
-        if (contadorFrameBack == 12 * 8)
-            contadorFrameBack = 0;
-
+        backgroundUpdate();
         finishRacing();
 
     }
@@ -155,26 +154,88 @@ public class Map2 extends MapDefault {
 
     public void percurssoDoMapa(int i, int tamanho, Line line, int v) {
         v = v * tamanho;
-        if (i > 150 + v && i < 350 + v) {
-            line.curve = 4;
-        }
-        if (i > 350 + v && i < 400 + v) {
-            line.curve = -15;
-        }
-        if (i > 400 + v && i < 450 + v) {
-            line.curve = 15;
-        }
-        if (i > 650 + v && i < 750 + v) {
-            line.curve = 15;
-        }
-        if (i > 1600 + v && i < 1700 + v) {
-            line.curve = 16;
-        }
-        if (i > 2000 + v && i < 2150 + v) {
+        if (i > 500 + v && i < 550 + v) {
             line.curve = 10;
         }
-        if (i > 2250 + v && i < 2500 + v) {
-            line.curve = 4;
+        if (i > 600 + v && i < 650 + v) {
+            line.curve = -10;
+        }
+        if (i > 950 + v && i < 1050 + v) {
+            line.curve = 15;
+        }
+        if (i > 1450 + v && i < 1500 + v) {
+            line.curve = 5;
+        }
+        if (i > 1550 + v && i < 1600 + v) {
+            line.curve = -5;
+        }
+        if (i > 1900 + v && i < 1950 + v) {
+            line.curve = -15;
+        }
+        if (i > 1950 + v && i < 2200 + v) {
+            line.curve = 8;
+        }
+        if (i > 2200 + v && i < 2500 + v) {
+            line.curve = 2;
+        }
+        if (i > 2500 + v && i < 2600 + v) {
+            line.curve = -7;
+        }
+        if (i > 2600 + v && i < 2700 + v) {
+            line.curve = 7;
+        }
+        if (i > 3100 + v && i < 3150 + v) {
+            line.curve = 12;
+        }
+        if (i > 3500 + v && i < 3650 + v) {
+            line.curve = 13;
+        }
+
+    }
+    public void curvasPlayer() {
+        int tes = this.voltaPercorrida * tamanhoDaPista;
+
+        if (playerPosition / 600 > tes + (500) && playerPosition / 600 < tes + (550)) {
+            playerX -= (int) curvaInercia(player.velocidade, 10);
+        }
+        if (playerPosition / 600 > tes + (600) && playerPosition / 600 < tes + (650)) {
+            playerX += (int) curvaInercia(player.velocidade, 10);
+        }
+        if (playerPosition / 600 > tes + (950) && playerPosition / 600 < tes + (1050)) {
+            playerX -= (int) curvaInercia(player.velocidade, 15);
+        }
+        if (playerPosition / 600 > tes + (1450) && playerPosition / 600 < tes + (1500)) {
+            playerX -= (int) curvaInercia(player.velocidade, 5);
+        }
+        if (playerPosition / 600 > tes + (1550) && playerPosition / 600 < tes + (1600)) {
+            playerX -= (int) curvaInercia(player.velocidade, 5);
+        }
+        if (playerPosition / 600 > tes + (1900) && playerPosition / 600 < tes + (1950)) {
+            playerX += (int) curvaInercia(player.velocidade, 15);
+        }
+        if (playerPosition / 600 > tes + (1950) && playerPosition / 600 < tes + (2200)) {
+            playerX -= (int) curvaInercia(player.velocidade, 8);
+        }
+        if (playerPosition / 600 > tes + (2200) && playerPosition / 600 < tes + (2500)) {
+            playerX -= (int) curvaInercia(player.velocidade, 2);
+        }
+        if (playerPosition / 600 > tes + (2500) && playerPosition / 600 < tes + (2600)) {
+            playerX += (int) curvaInercia(player.velocidade, 7);
+        }
+        if (playerPosition / 600 > tes + (2600) && playerPosition / 600 < tes + (2700)) {
+            playerX -= (int) curvaInercia(player.velocidade, 7);
+        }
+        if (playerPosition / 600 > tes + (3100) && playerPosition / 600 < tes + (3150)) {
+            playerX -= (int) curvaInercia(player.velocidade, 12);
+        }
+        if (playerPosition / 600 > tes + (3500) && playerPosition / 600 < tes + (3650)) {
+            playerX -= (int) curvaInercia(player.velocidade, 13);
+        }
+
+        if (playerPosition / 600 >= tes + (3650) && playerPosition / 600 <= tes + (3660)) {
+            this.voltaPercorrida++;
+
+            System.out.println("--------------------------------------------------------");
         }
 
     }
@@ -185,39 +246,6 @@ public class Map2 extends MapDefault {
         }
     }
 
-    public void curvasPlayer() {
-        int tes = this.voltaPercorrida * tamanhoDaPista;
-
-        if (playerPosition / 600 > tes + (150) && playerPosition / 600 < tes + (350)) {
-            playerX -= (int) curvaInercia(player.velocidade, 4);
-        }
-        if (playerPosition / 600 > tes + (350) && playerPosition / 600 < tes + (400)) {
-            playerX += (int) curvaInercia(player.velocidade, 15);
-        }
-        if (playerPosition / 600 > tes + (400) && playerPosition / 600 < tes + (450)) {
-            playerX -= (int) curvaInercia(player.velocidade, 15);
-        }
-        if (playerPosition / 600 > tes + (650) && playerPosition / 600 < tes + (750)) {
-            playerX -= (int) curvaInercia(player.velocidade, 15);
-        }
-        if (playerPosition / 600 > tes + (1600) && playerPosition / 600 < tes + (1700)) {
-            playerX -= (int) curvaInercia(player.velocidade, 16);
-        }
-        if (playerPosition / 600 > tes + (2000) && playerPosition / 600 < tes + (2150)) {
-            playerX -= (int) curvaInercia(player.velocidade, 10);
-        }
-        if (playerPosition / 600 > tes + (2250) && playerPosition / 600 < tes + (2500)) {
-            // line.curve = 12;
-            playerX -= (int) curvaInercia(player.velocidade, 4);
-
-        }
-        if (playerPosition / 600 >= tes + (2500) && playerPosition / 600 <= tes + (2510)) {
-            this.voltaPercorrida++;
-
-            System.out.println("--------------------------------------------------------");
-        }
-
-    }
 
     public double curvaInercia(double velocidade, int curva) {
         return ((curva * 6) * velocidade) / 350;
@@ -423,7 +451,16 @@ public class Map2 extends MapDefault {
         return true;
     }
 
-
+    public void backgroundUpdate() {
+        contadorFrameBack++;
+        if (contadorFrameBack  > 120) {
+            backgroundUsado = background[1];
+        }
+        if (contadorFrameBack > 130){
+            contadorFrameBack = 0;
+            backgroundUsado = background[0];
+        }
+    }
     @Override
     public int finishRacing() {
         // 0 = corrida iniciada, porém não terminou

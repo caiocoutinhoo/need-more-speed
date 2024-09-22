@@ -29,6 +29,8 @@ public class Map1 extends MapDefault {
         enemiesService = new EnemiesService(gp, player, this);
         getMap1Image();
 
+        player.velocidade = 0;
+
         tamanhoDaPista = 3000;
         for (int i = 0; i < ((tamanhoDaPista * voltas) + 500); i++) {
             Line line = new Line();
@@ -111,6 +113,7 @@ public class Map1 extends MapDefault {
 
     public void update() {
 
+        player.update();
         playerKey();
         curvasPlayer();
         barreirada();
@@ -120,6 +123,7 @@ public class Map1 extends MapDefault {
             contadorFrameBack = 0;
 
         finishRacing();
+
     }
 
     private void playerKey() {
@@ -210,7 +214,7 @@ public class Map1 extends MapDefault {
     }
 
     public void barreirada() {
-        if ((playerX < -4040 || playerX > 4040) && player.velocidade > 200) {
+        if ((playerX < -4090 || playerX > 4090) && player.velocidade > 200) {
             player.velocidade -= 30;
         }
     }
@@ -534,11 +538,11 @@ public class Map1 extends MapDefault {
         return true;
     }
 
+    @Override
     public int finishRacing() {
         // 0 = corrida iniciada, porém não terminou
         // 1 = corrida terminou, jogador ganhou
         // 2 = corrida terminou, jogador terminou
-        System.out.println(tamanhoDaPista);
         if (((tamanhoDaPista * voltas) <= (playerPosition/600)) && (playerPoints >= pointsToWin)){
             System.out.println("GANHOU");
 

@@ -38,6 +38,10 @@ public class MapDefault {
     public void draw(Graphics2D g2) {
     }
 
+    public int finishRacing(){
+        return 0;
+    }
+
     public class Line {
         public double x, y, z; // 3D center of line
         public double X, Y, W; // screen coord
@@ -64,7 +68,7 @@ public class MapDefault {
         g2.fillRect(0, 0, 1280, 720);
 
         // Incrementa a opacidade a cada frame (controla a velocidade da transição)
-        opacity += 0.003f; // Ajuste este valor para acelerar ou desacelerar a transição
+        opacity += 0.009f; // Ajuste este valor para acelerar ou desacelerar a transição
         if (opacity > 1.0f) {
             opacity = 1.0f; // Garante que a opacidade não ultrapasse o máximo
         }

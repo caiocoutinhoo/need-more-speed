@@ -37,8 +37,8 @@ public class Player extends Entity {
     }
     public void setDefaultValues(){
         aderencia = 0.3;
-        aceleracao = 2;
-        limVelocidade = 600;
+        aceleracao = 4;
+        limVelocidade = 800;
         freio = 10;
         defaultImage();
 

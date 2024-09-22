@@ -5,8 +5,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import UI.*;
+import map.Map2;
+import map.Map3;
 import map.MapDefault;
 
 
@@ -26,7 +30,12 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
     // Player
     Player player = new Player(this,keyH);
-    MapDefault map1 = new Map1(this, keyH, player);
+
+    List<MapDefault> maps = new ArrayList<>();
+    MapDefault mapInGame;
+
+    //MapDefault map1 = new Map1(this, keyH, player);
+    int atualMap = 0;
     //GAME STATE
     public int gameState;
     public final int titleState = 0;
@@ -48,6 +57,8 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
         this.gi = new GenericUI(this);
+        createMaps();
+
 
         try{    // carregando fonte personalizada
             customFont = Font.createFont(Font.TRUETYPE_FONT, new File("res/font/jgs_Font.ttf")).deriveFont(36f);
@@ -100,6 +111,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
         return -1;
     }
+
 //    public void tocarMusica(String filePath){
 //
 //
@@ -137,8 +149,17 @@ public class GamePanel extends JPanel implements Runnable {
             //atualiza o currentTime para o próximo frame
             currentTime = System.nanoTime();
 
-            map1.update();
-            player.update();
+            if (maps.get(atualMap).finishRacing() == 0){
+                maps.get(atualMap).update();
+            } else if (maps.get(atualMap).finishRacing() == 1) {
+                if (maps.size() == atualMap+1)
+                    finishGame();
+                else
+                    atualMap++;
+            } else if (maps.get(atualMap).finishRacing() == 2) {
+                finishGame();
+            }
+
         }if(gameState == pauseState){
             if(!isPaused){
                 pauseTime = System.nanoTime();
@@ -157,6 +178,14 @@ public class GamePanel extends JPanel implements Runnable {
             currentTime = System.nanoTime();
         }
     }
+
+    private void finishGame() {
+        atualMap = 0;
+        gameState = titleState;
+        maps.clear();
+        createMaps();
+    }
+
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
@@ -167,7 +196,7 @@ public class GamePanel extends JPanel implements Runnable {
             ui.draw(g2);
         }
         else if(gameState == playState){
-            map1.draw(g2);
+            maps.get(atualMap).draw(g2);
             //UI
             gi.draw(g2);
 
@@ -180,16 +209,16 @@ public class GamePanel extends JPanel implements Runnable {
 //            g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
 
             //marcação dos pontos
-            g.drawString("PONTOS: " + map1.playerPoints, 15, 80);
+            g.drawString("PONTOS: " + maps.get(atualMap).playerPoints, 15, 80);
         }else if(gameState == pauseState){
-            map1.draw(g2);
+            maps.get(atualMap).draw(g2);
             ui.setG2(g2);
             ui.drawPause();
 
 
         }
         else{
-            map1.draw(g2);
+            maps.get(atualMap).draw(g2);
             //UI
             gi.draw(g2);
 
@@ -202,7 +231,7 @@ public class GamePanel extends JPanel implements Runnable {
 //            g.drawString("TEMPO: " + String.format("%.2f", elapsedTimeInSeconds) + "s", 15, 42);
 
             //marcação dos pontos
-            g.drawString("PONTOS: " + map1.playerPoints, 15, 80);
+            g.drawString("PONTOS: " + maps.get(atualMap).playerPoints, 15, 80);
 
         }
         g2.dispose();
@@ -220,6 +249,18 @@ public class GamePanel extends JPanel implements Runnable {
                 player.setCarImage("/car1/car3.png");
                 break;
         }
+    }
+
+    public void createMaps(){
+
+        MapDefault map1 = new Map1(this, keyH, player);
+        maps.add(map1);
+        MapDefault map2 = new Map2(this, keyH, player);
+        maps.add(map2);
+        MapDefault map3 = new Map3(this, keyH, player);
+        maps.add(map3);
+
+        mapInGame = maps.get(atualMap);
     }
 }
 

@@ -36,7 +36,7 @@ public class Enemie extends Entity {
 
     public void getCarImage() {
         try {
-            carro = ImageIO.read(getClass().getResourceAsStream("/enemie/car1.png"));
+            carro = ImageIO.read(getClass().getResourceAsStream("/enemie/hiluxsw4.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
