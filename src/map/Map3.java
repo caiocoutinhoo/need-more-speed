@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map3 extends MapDefault{
-    public static final int pointsToWin = 30;
+    public static final int pointsToWin = 40;
     Player player;
     int contadorFrameBack = 0;
     List<Line> lines = new ArrayList<Line>();
@@ -434,13 +434,14 @@ public class Map3 extends MapDefault{
     public int finishRacing() {
         // 0 = corrida iniciada, porém não terminou
         // 1 = corrida terminou, jogador ganhou
-        // 2 = corrida terminou, jogador terminou
+        // 2 = corrida terminou, jogador perdeu
+        // 3 = fim de jogo
         if (((tamanhoDaPista * voltas) <= (playerPosition/600)) && (playerPoints >= pointsToWin)){
             System.out.println("GANHOU");
 
 
 
-            return 1;
+            return 3;
         }
         if (tamanhoDaPista * voltas <= playerPosition/600 && playerPoints < pointsToWin ){
             System.out.println("PERDEU");

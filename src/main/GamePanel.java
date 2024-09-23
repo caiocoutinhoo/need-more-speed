@@ -1,8 +1,11 @@
 package main;
 import entity.player.Player;
 import map.Map1;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,6 +52,7 @@ public class GamePanel extends JPanel implements Runnable {
     private long currentTime;
     private Font customFont;
     GenericUI gi;
+    BufferedImage finishImage;
 
 
     public GamePanel(){
@@ -57,6 +61,7 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
         this.gi = new GenericUI(this);
+        setFinishGameImage();
         createMaps();
 
 
@@ -154,7 +159,7 @@ public class GamePanel extends JPanel implements Runnable {
                 maps.get(atualMap).update();
             } else if (maps.get(atualMap).finishRacing() == 1) {
                 if (maps.size() == atualMap+1){
-                    System.exit(1);
+                    //System.exit(1);
                     finishGame();
                 }
                 else
@@ -192,6 +197,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
 
         if (gameState == titleState){
             ui.draw(g2);
@@ -237,7 +243,15 @@ public class GamePanel extends JPanel implements Runnable {
             g.drawString("PONTOS: " + maps.get(atualMap).playerPoints, 15, 80);
 
         }
+        drawFinish(g2);
+
         g2.dispose();
+    }
+
+    private void drawFinish(Graphics2D g2) {
+        if (maps.get(atualMap).finishRacing() == 3){
+            g2.drawImage(finishImage, 0, 0, 1280, 720, null);
+        }
     }
 
     public void alterarImgCar(){
@@ -264,6 +278,14 @@ public class GamePanel extends JPanel implements Runnable {
         maps.add(map3);
 
         mapInGame = maps.get(atualMap);
+    }
+
+    public void setFinishGameImage(){
+        try {
+            finishImage = ImageIO.read(getClass().getResourceAsStream("/ui/FimJogo.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
