@@ -20,7 +20,7 @@ public class Map3 extends MapDefault{
     int N;
     int pointX, pointY, backX = -60, backY = -46;
     EnemiesService enemiesService;
-    int voltas = 1;
+    int voltas = 10;
 
     public Map3(GamePanel gp, KeyHandler keyH, Player player) {
         this.gp = gp;
@@ -260,171 +260,137 @@ public class Map3 extends MapDefault{
         switch ((playerPosition / 600) - totalPercorrido) {
             case 0:
                 pointX = 1069;
-                pointY = 130;
+                pointY = 140;
                 break;
             case 30:
-                pointY = 125;
+                pointY = 138;
                 break;
             case 75:
-                pointY = 115;
+                pointY = 135;
                 break;
             case 150:
-                pointY = 105;
+                pointY = 130;
                 break;
             case 225:
-                pointY = 85;
+                pointY = 125;
                 break;
             case 300:
-                pointY = 78;
-                pointX = 1072;
+                pointY = 120;
+
                 break;
             case 350:
-                pointY = 72;
-                pointX = 1085;
+                pointY = 115;
+
                 break;
             case 400:
-                pointX = 1087;
+                pointY = 110;
+
                 break;
             case 450:
-                pointY = 59;
-                pointX = 1091;
+                pointY = 105;
+
                 break;
             case 500:
-                pointY = 53;
-                pointX = 1094;
+                pointY = 100;
+
                 break;
             case 550:
-                pointX = 1098;
+                pointY = 95;
+                pointX = 1072;
                 break;
             case 600:
-                pointX = 1102;
-                break;
-            case 650:
-                pointX = 1108;
-                break;
-            case 700:
-                pointY = 58;
-                pointX = 1118;
-                break;
-            case 750:
-                pointY = 61;
-                break;
-            case 800:
-                pointY = 62;
-                break;
-            case 850:
-                pointY = 64;
-                break;
-            case 900:
-                pointY = 65;
-                break;
-            case 950:
-                pointY = 66;
-                break;
-            case 1000:
-                pointY = 68;
-                break;
-            case 1050:
-                pointY = 73;
-                break;
-            case 1100:
-                pointY = 74;
-                break;
-            case 1150:
-                pointY = 75;
-                pointX = 1116;
-                break;
-            case 1200:
-                pointY = 77;
-                pointX = 1114;
-                break;
-            case 1300:
-                pointY = 81;
-                pointX = 1111;
-                break;
-            case 1350:
                 pointY = 87;
-                pointX = 1103;
-                break;
-            case 1400:
-                pointY = 95;
-                pointX = 1100;
-                break;
-            case 1450:
-                pointY = 103;
-                pointX = 1101;
-                break;
-            case 1500:
-                pointY = 111;
-                pointX = 1106;
-                break;
-            case 1550:
-                pointY = 119;
-                pointX = 1111;
-                break;
-            case 1600:
-                pointY = 133;
-                pointX = 1120;
-                break;
-            case 1650:
-                pointY = 140;
-                pointX = 1133;
-                break;
-            case 1700:
-                pointY = 150;
-                pointX = 1135;
-                break;
-            case 1800:
-                pointY = 156;
-                break;
-            case 1900:
-                pointY = 163;
-                pointX = 1133;
-                break;
-            case 2100:
-                pointY = 165;
-                pointX = 1130;
-                break;
-            case 2150:
-                pointY = 168;
-                pointX = 1121;
-                break;
-            case 2250:
-                pointY = 169;
-                pointX = 1117;
-                break;
-            case 2300:
-                pointX = 1111;
-                break;
-            case 2400:
-                pointX = 1104;
-                break;
-            case 2450:
-                pointX = 1102;
-                break;
-            case 2500:
-                pointY = 161;
-                pointX = 1091;
-                break;
-            case 2600:
-                pointY = 157;
-                pointX = 1086;
-                break;
-            case 2700:
-                pointY = 153;
-                pointX = 1081;
-                break;
-            case 2800:
-                pointY = 148;
-                pointX = 1079;
-                break;
-            case 2900:
-                pointY = 142;
                 pointX = 1075;
                 break;
+            case 650:
+                //nova reta
+                pointY = 81;
+                pointX = 1068;
+                break;
+            case 700:
+                pointY = 77;
+                pointX = 1066;
+                break;
+            case 750:
+                pointY = 73;
+                break;
+            case 800:
+                pointY = 69;
+                break;
+            case 850:
+                pointY = 66;
+                break;
+            case 900:
+                pointY = 63;
+                break;
+            case 950:
+                //final da reta
+                pointY = 59;
+                break;
+            case 1000:
+                pointY = 53;
+                pointX = 1075;
+                break;
+            case 1050:
+                pointY = 52;
+                pointX = 1080;
+                break;
+            case 1100:
+                pointX = 1085;
+                break;
+            case 1150:
+
+                pointX = 1090;
+                break;
+            case 1200:
+
+                pointX = 1095;
+                break;
+            case 1300:
+
+                pointX = 1098;
+                break;
+            case 1350:
+
+                pointX = 1101;
+                break;
+            case 1400:
+
+                pointX = 1104;
+                break;
+            case 1450:
+
+                pointX = 1107;
+                break;
+            case 1500:
+                //final da reta
+                pointY = 52;
+                pointX = 1110;
+                break;
+
+            case 1900:
+                pointY = 78;
+                pointX = 1149;
+
+                break;
+
+            case 2300:
+                pointY = 106;
+                pointX = 1122;
+                break;
+
+            case 2700:
+                pointY = 125;
+                pointX = 1118;
+                break;
+
+            case 2900:
+                pointY = 150;
+                pointX = 1116;
+                break;
             case 3000:
-                pointY = 130;
-                pointX = 1069;
+                pointY = 161;
+                pointX = 1075;
                 break;
 
         }
@@ -435,6 +401,7 @@ public class Map3 extends MapDefault{
         backX = -60 + playerX / 200;
         g2.drawImage(backgroundUsado, backX, backY, 794 * 7 / 4, 285 * 7 / 4, null);
     }
+
 
     public boolean cutscene(Graphics2D g2) {
         if (cutsceneCounter < 50) {
@@ -468,6 +435,8 @@ public class Map3 extends MapDefault{
         // 2 = corrida terminou, jogador terminou
         if (((tamanhoDaPista * voltas) <= (playerPosition/600)) && (playerPoints >= pointsToWin)){
             System.out.println("GANHOU");
+
+
 
             return 1;
         }

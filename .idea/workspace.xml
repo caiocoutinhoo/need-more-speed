@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="cutscene adcionadas">
-      <change afterPath="$PROJECT_DIR$/src/map/Map3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/ui/FimJogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/map1/back-map1-nuvem.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/enemie/Enemie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/enemie/Enemie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ui/car1.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/ui/car1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ui/car2.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/ui/car2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ui/car3.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/ui/car3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/map/Map2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/MapDefault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/MapDefault.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/Map3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/caiocoutinhoo/need-more-speed.git&quot;,
-    &quot;accountId&quot;: &quot;8cc08d95-d774-433e-8b4d-2a85d8df1b77&quot;
+    &quot;accountId&quot;: &quot;d79d7eab-689f-40f5-99c7-0a1d7a006c55&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -56,34 +55,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;NEW__GAMEPANEL__FUNCTION&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/vinicius/idea-IU-233.14475.28/need-more-speed/res/sound&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "NEW__GAMEPANEL__FUNCTION",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/vinicius/idea-IU-233.14475.28/need-more-speed/res/ui",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "terminal",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/ui" />
       <recent name="$PROJECT_DIR$/res/sound" />
       <recent name="$PROJECT_DIR$/res/car1" />
       <recent name="$PROJECT_DIR$/res/libs" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\caiom\OneDrive\Área de Trabalho\Caio\need more speed\res\map1\back" />
@@ -113,8 +112,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="jdk-11.0.22-temurin-11.0.22-4caba194b151-3f037115" />
       </set>
     </attachedChunks>
   </component>
@@ -153,7 +151,7 @@
       <workItem from="1726677132362" duration="44000" />
       <workItem from="1726683088485" duration="630000" />
       <workItem from="1726834046684" duration="6650000" />
-      <workItem from="1727014227426" duration="7319000" />
+      <workItem from="1727032979271" duration="14742000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
