@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="cutscene adcionadas">
-      <change afterPath="$PROJECT_DIR$/src/map/Map3.java" afterDir="false" />
+    <list default="true" id="dfb707f7-9ab8-472d-9d7a-76575e1c1f25" name="Changes" comment="coiisas adcionadas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/map1/back-map1-nuvem.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/enemie/Enemie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/enemie/Enemie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/player/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/Map1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/Map2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/Map2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/MapDefault.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/MapDefault.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +146,7 @@
       <workItem from="1726677132362" duration="44000" />
       <workItem from="1726683088485" duration="630000" />
       <workItem from="1726834046684" duration="6650000" />
-      <workItem from="1727014227426" duration="7319000" />
+      <workItem from="1727014227426" duration="7655000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -267,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726841755825</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="coiisas adcionadas">
+      <option name="closed" value="true" />
+      <created>1727031697444</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1727031697444</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +297,8 @@
     <MESSAGE value="adicao de efeitos sonoros no game" />
     <MESSAGE value="Enemies adcionados" />
     <MESSAGE value="cutscene adcionadas" />
-    <option name="LAST_COMMIT_MESSAGE" value="cutscene adcionadas" />
+    <MESSAGE value="coiisas adcionadas" />
+    <option name="LAST_COMMIT_MESSAGE" value="coiisas adcionadas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

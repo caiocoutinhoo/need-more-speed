@@ -253,10 +253,10 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void createMaps(){
 
-        MapDefault map1 = new Map1(this, keyH, player);
-        maps.add(map1);
-        MapDefault map2 = new Map2(this, keyH, player);
-        maps.add(map2);
+//        MapDefault map1 = new Map1(this, keyH, player);
+//        maps.add(map1);
+//        MapDefault map2 = new Map2(this, keyH, player);
+//        maps.add(map2);
         MapDefault map3 = new Map3(this, keyH, player);
         maps.add(map3);
 
