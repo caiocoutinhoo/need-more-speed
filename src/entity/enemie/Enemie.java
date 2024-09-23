@@ -17,6 +17,8 @@ public class Enemie extends Entity {
     int xOriginal;
     int yOriginal;
     boolean overtaken = false;
+    public static int carImageTexture = 0;
+    String urlImage;
 
     public Enemie(GamePanel gp, int x, int y, double aceleracao, Player player, MapDefault map, int lim, double enemiePosition, double xInMap) {
         this.gp = gp;
@@ -26,7 +28,7 @@ public class Enemie extends Entity {
         this.player = player;
         this.map = map;
         this.limVelocidade = lim;
-        getCarImage();
+        setCarImage();
         xOriginal = this.x;
         yOriginal = this.y;
         this.enemiePosition = enemiePosition;
@@ -34,9 +36,27 @@ public class Enemie extends Entity {
 
     }
 
-    public void getCarImage() {
+    public double getEnemiePosition() {
+        return enemiePosition;
+    }
+
+    public void setCarImage() {
+        switch (carImageTexture) {
+            case 0:
+                urlImage = "/enemie/uno.png";
+                carImageTexture++;
+                break;
+            case 1:
+                urlImage = "/enemie/hiluxsw4.png";
+                carImageTexture++;
+                break;
+            case 2:
+                urlImage = "/enemie/kwid.png";
+                carImageTexture = 0;
+                break;
+        }
         try {
-            carro = ImageIO.read(getClass().getResourceAsStream("/enemie/hiluxsw4.png"));
+            carro = ImageIO.read(getClass().getResourceAsStream(urlImage));
         } catch (IOException e) {
             e.printStackTrace();
         }

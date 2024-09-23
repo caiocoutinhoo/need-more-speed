@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map3 extends MapDefault{
-    public static final int pointsToWin = 10;
+    public static final int pointsToWin = 40;
     Player player;
     int contadorFrameBack = 0;
     List<Line> lines = new ArrayList<Line>();
     int N;
     int pointX, pointY, backX = -60, backY = -46;
     EnemiesService enemiesService;
-    int voltas = 1;
+    int voltas = 30;
 
     public Map3(GamePanel gp, KeyHandler keyH, Player player) {
         this.gp = gp;
@@ -405,11 +405,13 @@ public class Map3 extends MapDefault{
 
     public boolean cutscene(Graphics2D g2) {
         if (cutsceneCounter < 50) {
+            player.velocidade = 0;
             cutsceneCounter++;
             g2.drawImage(backgroundUsado, 0, 0, 1280, 720, 0, 0, 507, 285, null);
             return false; // Retorna true após 50 execuções
         }
         if (cutsceneCounter > 49 && cutsceneCounter < 200) {
+            player.velocidade = 0;
             cutsceneCounter++;
             g2.drawImage(backgroundUsado, 0, 0, 1280, 720, 0, 0, 507, 285, null);
             fadeToBlack(g2);

@@ -153,8 +153,10 @@ public class GamePanel extends JPanel implements Runnable {
             if (maps.get(atualMap).finishRacing() == 0){
                 maps.get(atualMap).update();
             } else if (maps.get(atualMap).finishRacing() == 1) {
-                if (maps.size() == atualMap+1)
+                if (maps.size() == atualMap+1){
+                    System.exit(1);
                     finishGame();
+                }
                 else
                     atualMap++;
             } else if (maps.get(atualMap).finishRacing() == 2) {

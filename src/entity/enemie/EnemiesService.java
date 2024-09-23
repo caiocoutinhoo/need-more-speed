@@ -6,6 +6,7 @@ import map.MapDefault;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class EnemiesService {
@@ -43,6 +44,7 @@ public class EnemiesService {
 
     public void updateEnemies(int positionPlayer, Graphics2D g2) {
         updateCreateEnemies(positionPlayer);
+        enemies.sort(Comparator.comparingDouble(Enemie::getEnemiePosition));
         for (Enemie enemie : enemies) {
             enemie.update();
             enemie.checkOvertaken(map);
@@ -68,10 +70,10 @@ public class EnemiesService {
                 enemie.x = (int) (npcLine.X + (npcLine.W * enemie.xInMap));
 
                 double scale = ((enemie.enemiePosition - positionPlayer) / 120);
-                enemie.y = (int) (npcLine.Y - (95 - scale / 2));
+                enemie.y = (int) (npcLine.Y - (100 - scale / 2));
 
                 enemie.width = (int) (190 - scale);
-                enemie.height = (int) (95 - scale / 2);
+                enemie.height = (int) (100 - scale / 2);
 
                 if (190 - scale > 0) {
                     g2.drawImage(enemie.carro, enemie.x, enemie.y, enemie.width, enemie.height, null);
@@ -96,6 +98,7 @@ public class EnemiesService {
                 r1.y < r2.y + r2.height &&  // Verifica se o topo do r1 está acima da parte inferior do r2
                 r1.y + r1.height > r2.y;    // Verifica se a parte inferior do r1 está abaixo do topo do r2
     }
+
 
 }
 

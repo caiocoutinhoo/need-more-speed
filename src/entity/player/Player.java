@@ -36,9 +36,9 @@ public class Player extends Entity {
         }
     }
     public void setDefaultValues(){
-        aderencia = 0.3;
-        aceleracao = 4;
-        limVelocidade = 800;
+        aderencia = 0.2;
+        aceleracao = 3;
+        limVelocidade = 700;
         freio = 10;
         defaultImage();
 
@@ -93,6 +93,6 @@ public class Player extends Entity {
     }
 
     public void onCollision() {
-        this.velocidade = this.velocidade - 30;
+        this.velocidade = this.velocidade - 50;
     }
 }
