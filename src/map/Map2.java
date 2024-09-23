@@ -20,7 +20,7 @@ public class Map2 extends MapDefault {
     int N;
     int pointX, pointY, backX = -60, backY = -46;
     EnemiesService enemiesService;
-    int voltas = 10;
+    int voltas = 1;
 
     public Map2(GamePanel gp, KeyHandler keyH, Player player) {
         this.gp = gp;
