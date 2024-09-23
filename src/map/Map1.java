@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Map1 extends MapDefault {
-    public static final int pointsToWin = 45;
+    public static final int pointsToWin = 35;
     Player player;
     int contadorFrameBack = 0;
     List<Line> lines = new ArrayList<Line>();
     int N;
     int pointX, pointY, backX = -60, backY = -34;
     EnemiesService enemiesService;
-    int voltas = 3;
+    int voltas = 2;
 
     public Map1(GamePanel gp, KeyHandler keyH, Player player) {
         this.gp = gp;
